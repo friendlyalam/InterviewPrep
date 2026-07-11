@@ -22,7 +22,10 @@
 
   <ItemGroup>
     <Folder Include="Arrays\" />
-    <Folder Include="Strings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterviewPrep.DSA\InterviewPrep.DSA.csproj" />
   </ItemGroup>
 
 </Project>
