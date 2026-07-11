@@ -13,6 +13,7 @@ namespace InterviewPrep.DSA.Strings
         /// </summary>
         /// <param name="strs">An array of strings to be grouped by their anagram patterns.</param>
         /// <returns>A collection of lists, where each sub-list contains words that are anagrams of each other.</returns>
+        /// <summary>
         public IList<IList<string>> GroupAnagram(string[] strs)
         {
             // Dictionary to store grouped anagrams
@@ -20,13 +21,11 @@ namespace InterviewPrep.DSA.Strings
             // Value = list of anagrams
             Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
 
-            if (strs.Length == 0)
+            if (strs == null || strs.Length == 0)
             {
-                if (strs == null || strs.Length == 0)
-                {
-                    return new List<IList<string>>();
-                }
+                return new List<IList<string>>();
             }
+
             foreach (string word in strs)
             {
                 // Step 1: Create frequency array (size 26 for a-z)
@@ -57,12 +56,7 @@ namespace InterviewPrep.DSA.Strings
 
                 map[key].Add(word);
             }
-            Console.WriteLine("Groups are:");
-            foreach (var group in map.Values)
-            {
-                Console.WriteLine(string.Join(", ", group));
-            }
-            Console.ReadLine();
+
             // Return grouped values
             return new List<IList<string>>(map.Values);
         }
