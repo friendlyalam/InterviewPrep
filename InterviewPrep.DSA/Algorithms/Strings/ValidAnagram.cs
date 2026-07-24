@@ -1,5 +1,4 @@
-﻿
-namespace InterviewPrep.DSA.Strings
+﻿namespace InterviewPrep.DSA.Algorithms.Strings
 {
     public class ValidAnagram
     {

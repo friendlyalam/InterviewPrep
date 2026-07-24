@@ -1,4 +1,4 @@
-﻿using InterviewPrep.DSA.Strings;
+﻿using InterviewPrep.DSA.Algorithms.Strings;
 
 namespace InterviewPrep.Tests.Strings
 {

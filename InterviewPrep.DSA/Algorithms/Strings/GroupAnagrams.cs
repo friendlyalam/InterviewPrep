@@ -1,8 +1,6 @@
-﻿
+﻿using System.Text;
 
-using System.Text;
-
-namespace InterviewPrep.DSA.Strings
+namespace InterviewPrep.DSA.Algorithms.Strings
 {
     public class GroupAnagrams
     {
