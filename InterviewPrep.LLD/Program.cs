@@ -154,5 +154,87 @@ add.Display();
 Console.WriteLine();
 
 emps.Save();
-        
+
+#endregion
+#region Abstract Class demo
+Payment payment =
+                new CreditCardPayment(2500, "INR", "1234-XXXX");
+
+payment.PaymentCompleted += (msg) =>
+{
+    Console.WriteLine($"EVENT : {msg}");
+};
+
+payment.Validate();
+
+payment.ProcessPayment();
+
+payment.GenerateReceipt();
+
+payment.SendNotification();
+
+payment.Refund();
+
+Payment.ShowCompanyPolicy();
+
+Console.WriteLine();
+
+Payment.AuditLog audit =
+    new Payment.AuditLog();
+
+audit.Save();
+
+Console.WriteLine();
+
+Console.WriteLine($"Total Payments : {Payment.TotalPayments}");
+#endregion
+#region Abstraction demo
+Document document =
+                new PdfDocument("EmployeeReport.pdf", 2048);
+
+document.DocumentProcessed +=
+    message => Console.WriteLine(message);
+
+document.Process();
+#endregion
+#region Encapsulation demo
+BankAccount account =
+               new BankAccount(
+                   "SB1001",
+                   "Mohd Alam",
+                   10000);
+
+account.Deposit(5000);
+
+account.Withdraw(3000);
+
+account.ChangeAccountHolder("Mohammad Alam");
+
+account.DisplayAccount();
+
+// Not Allowed
+
+// account.Balance = 1000000;
+// account._balance = 1000000;
+#endregion
+#region Inheritance demo
+ImageFile image = new ImageFile(
+                "Holiday.jpg",
+                2048,
+                "1920x1080");
+
+image.Upload();
+image.Preview();
+image.GenerateThumbnail();
+
+Console.WriteLine();
+
+VideoFile video = new VideoFile(
+    "Demo.mp4",
+    50000,
+    120);
+
+video.Upload();
+video.Preview();
+video.CompressVideo();
 #endregion
