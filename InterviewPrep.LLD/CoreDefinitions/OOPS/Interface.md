@@ -495,3 +495,62 @@ SOLID principles
 Easily replaceable implementations
 
 Those are the reasons you'll encounter in real enterprise applications.
+
+---------------------------------------------------------------------------------
+
+| Feature               | Class                                              | Interface                                                                                                            |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Definition            | A blueprint that contains data and implementation. | A contract that defines what a class must do.                                                                        |
+| Purpose               | Represents an object with state and behavior.      | Defines capabilities/behavior without implementation (except default/static members in modern C#).                   |
+| Object Creation       | ✅ Object can be created (if not abstract).         | ❌ Cannot create an object directly.                                                                                  |
+| Constructors          | ✅ Supported                                        | ❌ Not supported (interfaces cannot have instance constructors).                                                      |
+| Fields                | ✅ Allowed                                          | ❌ Instance fields are not allowed.                                                                                   |
+| Properties            | ✅ Allowed                                          | ✅ Allowed (typically declarations; modern C# also supports default implementations in some cases).                   |
+| Methods               | ✅ Can have implemented methods                     | ✅ Method declarations; can also have default implementations in modern C#.                                           |
+| Access Modifiers      | public, private, protected, internal, etc.         | Members are public by contract (with newer C# allowing additional modifiers in specific scenarios).                  |
+| Inheritance           | Single class inheritance                           | Multiple interface inheritance                                                                                       |
+| Multiple Inheritance  | ❌ Not supported for classes                        | ✅ Supported                                                                                                          |
+| State (Data)          | ✅ Can store data in fields                         | ❌ Cannot store instance state                                                                                        |
+| Static Members        | ✅ Supported                                        | ✅ Supported (modern C#)                                                                                              |
+| Abstract Members      | ✅ Supported in abstract classes                    | ✅ Implicitly abstract unless a default implementation is provided                                                    |
+| Implementation        | Complete or partial                                | Contract-focused; implementation is provided by implementing classes (or default interface members where applicable) |
+| Memory Allocation     | Object stored on heap                              | No object exists for the interface itself                                                                            |
+| Relationship          | IS-A                                               | CAN-DO / Capability                                                                                                  |
+| Product Company Usage | Represents entities                                | Defines contracts for flexibility and loose coupling                                                                 |
+
+--------------------------------------------------
+
+When Should You Use a Class?
+
+Use a class when:
+
+You need to store data.
+You need constructors.
+You need fields.
+You need an object.
+You are modelling a real entity.
+
+Examples:
+
+Employee
+Product
+Order
+Customer
+Invoice
+When Should You Use an Interface?
+
+Use an interface when:
+
+Multiple implementations are possible.
+You want loose coupling.
+You want Dependency Injection.
+You want easier testing.
+You want a contract.
+
+Examples:
+
+ILogger
+IRepository
+INotificationService
+IPaymentGateway
+ICacheService

@@ -6,6 +6,25 @@ using InterviewPrep.LLD.OOPS.Interfaces.DocumentExample;
 using InterviewPrep.LLD.OOPS.Interfaces.FlightBookingSystem;
 using InterviewPrep.LLD.OOPS.PartialClass;
 using InterviewPrep.LLD.OOPS.Polymorphism;
+using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Interfaces;
+using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Models;
+using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Services;
+using InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Interfaces;
+using InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Models;
+using InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Servces;
+using InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Interfaces;
+using InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Models;
+using InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Services;
+using InterviewPrep.LLD.SolidPrinciples.OCP.PaymentGatewaySystem.Interfaces;
+using InterviewPrep.LLD.SolidPrinciples.OCP.PaymentGatewaySystem.Models;
+using InterviewPrep.LLD.SolidPrinciples.OCP.PaymentGatewaySystem.Services;
+using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Interfaces;
+using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Repositories;
+using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services;
+using EmailService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.EmailService;
+using Employee = InterviewPrep.LLD.OOPS.PartialClass.Employee;
+using OrderService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.OrderService;
+#region OOPS
 
 #region Class Demo
 Class emp = new Class(101, "Mohd Alam", 75000);
@@ -405,14 +424,198 @@ InterviewPrep.LLD.OOPS.Composition.Order orders =
 order.DisplayOrder();
 #endregion
 #region Dependency demo
-EmailService emailService =
-            new EmailService();
+InterviewPrep.LLD.OOPS.Dependency.EmailService emailService =
+            new InterviewPrep.LLD.OOPS.Dependency.EmailService();
 
-OrderService orderService =
-    new OrderService();
+InterviewPrep.LLD.OOPS.Dependency.OrderService orderService =
+    new InterviewPrep.LLD.OOPS.Dependency.OrderService();
 
 orderService.PlaceOrder(
     "Mohd Alam",
     "alam@example.com",
     emailService);
+#endregion
+
+#endregion
+
+#region Solid Principles
+
+#region SRP demo
+InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Models.Order ord = new InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Models.Order
+{
+    OrderId = 1001,
+    CustomerName = "Mohd Alam",
+    CustomerEmail = "alam@email.com",
+    ProductName = "Dell Laptop",
+    Price = 65000,
+    Quantity = 1
+};
+
+IOrderRepository repository =
+    new OrderRepository();
+
+IInventoryService inventory =
+    new InventoryService();
+
+IInvoiceService invoice =
+    new InvoiceService();
+
+IEmailService email =
+    new EmailService();
+
+IAuditService aud =
+    new AuditService();
+
+OrderService orderServices =
+    new OrderService(
+        repository,
+        inventory,
+        invoice,
+        email,
+        aud);
+
+orderServices.PlaceOrder(ord);
+#endregion
+
+#region OCP demo
+//Payment using Stripe
+PaymentRequest paymentRequest = new PaymentRequest
+{
+    OrderId = 1001,
+    CustomerName = "Mohd Alam",
+    Amount = 65000,
+    Currency = "INR"
+};
+
+IPaymentGateway paymentGateway =
+    new StripePaymentGateway();
+
+CheckoutService checkoutService =
+    new CheckoutService(paymentGateway);
+
+checkoutService.Checkout(paymentRequest);
+#endregion
+
+#region LSP demo
+UploadRequest request = new UploadRequest
+{
+    FileName = "Resume.pdf",
+    FileContent = new byte[] { 10, 20, 30, 40 },
+    ContentType = "application/pdf",
+    FileSizeInBytes = 4096
+};
+
+IStorageProvider storageProvider = new AzureBlobStorageProvider();
+
+FileStorageService storageService =
+    new FileStorageService(storageProvider);
+
+UploadResult result = storageService.UploadFile(request);
+
+Console.WriteLine();
+
+Console.WriteLine("Provider : " + result.File.StorageProvider);
+Console.WriteLine("URL      : " + result.File.FileUrl);
+
+//Note:
+//Switching to AWS
+
+//Only one line changes.
+
+//IStorageProvider storageProvider =
+//    new AwsS3StorageProvider();
+
+//Nothing else changes.
+
+//Switching to Google
+
+//Again,
+
+//only one line changes.
+
+//IStorageProvider storageProvider =
+//    new GoogleCloudStorageProvider();
+
+//Everything else remains exactly the same.
+#endregion
+
+#region ISP demo
+Patient patient = new Patient
+{
+    PatientId = 1,
+    Name = "Mohd Alam",
+    Age = 35,
+    MobileNumber = "9876543210"
+};
+
+Appointment appointment = new Appointment
+{
+    AppointmentId = 101,
+    DoctorName = "Dr. Sharma",
+    AppointmentDate = DateTime.Now
+};
+
+IReceptionService reception =
+    new Receptionist();
+
+IDoctorService doctor =
+    new Doctor();
+
+IPharmacyService pharmacy =
+    new Pharmacist();
+
+IBillingService billing =
+    new Cashier();
+
+HospitalManagementService hospital =
+    new HospitalManagementService(
+        reception,
+        doctor,
+        pharmacy,
+        billing);
+
+hospital.ProcessPatient(
+    patient,
+    appointment);
+
+Console.ReadKey();
+#endregion
+
+#region DIP demo
+InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Models.Employee employee = new InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Models.Employee
+{
+    EmployeeId = 101,
+    FullName = "Mohd Alam",
+    Email = "mohdalam@gmail.com",
+    MobileNumber = "9876543210"
+};
+
+AttendanceRecord attendance = new AttendanceRecord
+{
+    EmployeeId = 101,
+    AttendanceDate = DateTime.Today,
+    CheckInTime = new TimeSpan(9, 15, 0),
+    IsPresent = true
+};
+
+// Dependency Selection
+INotificationService notificationService =
+    new EmailNotificationService();
+
+// Constructor Injection
+IAttendanceService attendanceService =
+    new AttendanceService(notificationService);
+
+AttendanceResult res =
+    attendanceService.MarkAttendance(
+        employee,
+        attendance);
+
+Console.WriteLine("------------------------------------------");
+Console.WriteLine("ATTENDANCE RESULT");
+Console.WriteLine("------------------------------------------");
+Console.WriteLine(res.Message);
+Console.WriteLine();
+#endregion
+
 #endregion

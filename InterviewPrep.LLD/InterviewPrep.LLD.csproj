@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Design\" />
     <Folder Include="DesignPatterns\" />
-    <Folder Include="SolidPrinciples\" />
   </ItemGroup>
 
 </Project>

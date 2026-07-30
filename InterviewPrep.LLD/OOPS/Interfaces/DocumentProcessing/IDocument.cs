@@ -1,5 +1,5 @@
 ﻿namespace InterviewPrep.LLD.OOPS.Interfaces.DocumentExample
-
+{ 
     public interface IDocument
     {
         void Open();
