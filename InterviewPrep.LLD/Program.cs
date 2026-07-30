@@ -1,5 +1,11 @@
 ﻿using InterviewPrep.LLD.OOPS;
+using InterviewPrep.LLD.OOPS.Aggregation;
+using InterviewPrep.LLD.OOPS.Association;
+using InterviewPrep.LLD.OOPS.Dependency;
+using InterviewPrep.LLD.OOPS.Interfaces.DocumentExample;
+using InterviewPrep.LLD.OOPS.Interfaces.FlightBookingSystem;
 using InterviewPrep.LLD.OOPS.PartialClass;
+using InterviewPrep.LLD.OOPS.Polymorphism;
 
 #region Class Demo
 Class emp = new Class(101, "Mohd Alam", 75000);
@@ -237,4 +243,176 @@ VideoFile video = new VideoFile(
 video.Upload();
 video.Preview();
 video.CompressVideo();
+#endregion
+#region Polymorphism demo
+CloudFile[] files =
+            {
+                new ImageFiles("Photo.jpg",2500,"1920x1080"),
+
+                new VideoFiles("Demo.mp4",50000,120),
+
+                new DocumentFile("Architecture.pdf",1800,45)
+            };
+
+foreach (var file in files)
+{
+    file.FileUploaded +=
+        name => Console.WriteLine($"Event : {name} uploaded.");
+
+    file.Upload();
+
+    file.Preview();
+
+    file.Download();
+
+    Console.WriteLine();
+
+    // Pattern Matching
+
+    if (file is ImageFiles images)
+    {
+        images.GenerateThumbnail();
+    }
+    else if (file is VideoFiles videos)
+    {
+        videos.Compress();
+    }
+    else if (file is DocumentFile documents)
+    {
+        documents.ExtractText();
+    }
+
+    Console.WriteLine("--------------------------------");
+}
+#endregion
+#region Method Overloading demo
+StorageService storage = new StorageService();
+
+storage.Upload("Resume.pdf");
+
+storage.Upload("Resume.pdf", "Documents");
+
+storage.Upload("Resume.pdf", "Documents", true);
+#endregion
+#region Method Overriding demo
+NotificationService notification =
+            new SmsNotification();
+
+notification.Send("Order Delivered");
+#endregion
+#region Method Hiding demo
+ReportGenerator report =
+            new PdfReportGenerator();
+
+report.Generate();
+
+Console.WriteLine();
+
+PdfReportGenerator pdf =
+    new PdfReportGenerator();
+
+pdf.Generate();
+#endregion
+#region Operator Overloading demo
+Cart cart = new Cart(2);
+
+cart = cart + 3;
+
+Console.WriteLine(cart.TotalItems);
+#endregion
+#region Interface demo for document processing
+IDocument docs =
+                new PdfDocuments("Architecture.pdf");
+
+DocumentManager manager =
+    new DocumentManager(docs);
+
+manager.Process();
+
+Console.WriteLine();
+
+if (document is IPrintables printable)
+{
+    printable.Print();
+}
+
+if (document is IExportable exportable)
+{
+    exportable.Export("HTML");
+}
+
+if (document is IAuditable audits)
+{
+    audits.Audit("Document Processed");
+}
+#endregion
+#region Interface demo for FLight booking system
+IAirline airline = new Emirates();
+
+BookingService bookingService =
+    new BookingService(airline);
+
+bookingService.CreateBooking("Mohd Alam");
+#endregion
+#region Association demo
+Customer customer =
+            new Customer("Mohd Alam");
+
+Order order =
+    new Order(101, "Wireless Mouse");
+
+customer.PlaceOrder(order);
+#endregion
+#region Aggregation demo
+Pilot pilot1 =
+            new Pilot(101, "James", 15);
+
+Pilot pilot2 =
+    new Pilot(102, "Rahul", 11);
+
+Pilot pilot3 =
+    new Pilot(103, "David", 18);
+
+List<Pilot> pilots =
+    new List<Pilot>
+    {
+                pilot1,
+                pilot2,
+                pilot3
+    };
+
+Airline air =
+    new Airline(
+        "Sky Wings",
+        pilots);
+
+air.DisplayPilots();
+
+Console.WriteLine();
+
+Console.WriteLine("Pilot still exists independently:");
+
+pilot1.FlyAircraft();
+#endregion
+#region Composition demo
+InterviewPrep.LLD.OOPS.Composition.Order orders =
+            new InterviewPrep.LLD.OOPS.Composition.Order(
+                1001,
+                "Sector 18",
+                "Noida",
+                "India");
+
+order.DisplayOrder();
+#endregion
+#region Dependency demo
+EmailService emailService =
+            new EmailService();
+
+OrderService orderService =
+    new OrderService();
+
+orderService.PlaceOrder(
+    "Mohd Alam",
+    "alam@example.com",
+    emailService);
 #endregion
