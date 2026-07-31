@@ -1,4 +1,12 @@
-﻿using InterviewPrep.LLD.OOPS;
+﻿using InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Consumer;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Enums;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Models;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Services;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Enums;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Models;
+using InterviewPrep.LLD.OOPS;
 using InterviewPrep.LLD.OOPS.Aggregation;
 using InterviewPrep.LLD.OOPS.Association;
 using InterviewPrep.LLD.OOPS.Dependency;
@@ -21,6 +29,9 @@ using InterviewPrep.LLD.SolidPrinciples.OCP.PaymentGatewaySystem.Services;
 using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Interfaces;
 using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Repositories;
 using InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using CloudFile = InterviewPrep.LLD.OOPS.Polymorphism.CloudFile;
 using EmailService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.EmailService;
 using Employee = InterviewPrep.LLD.OOPS.PartialClass.Employee;
 using OrderService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.OrderService;
@@ -273,30 +284,30 @@ CloudFile[] files =
                 new DocumentFile("Architecture.pdf",1800,45)
             };
 
-foreach (var file in files)
+foreach (var cloudFile in files)
 {
-    file.FileUploaded +=
+    cloudFile.FileUploaded +=
         name => Console.WriteLine($"Event : {name} uploaded.");
 
-    file.Upload();
+    cloudFile.Upload();
 
-    file.Preview();
+    cloudFile.Preview();
 
-    file.Download();
+    cloudFile.Download();
 
     Console.WriteLine();
 
     // Pattern Matching
 
-    if (file is ImageFiles images)
+    if (cloudFile is ImageFiles images)
     {
         images.GenerateThumbnail();
     }
-    else if (file is VideoFiles videos)
+    else if (cloudFile is VideoFiles videos)
     {
         videos.Compress();
     }
-    else if (file is DocumentFile documents)
+    else if (cloudFile is DocumentFile documents)
     {
         documents.ExtractText();
     }
@@ -616,6 +627,98 @@ Console.WriteLine("ATTENDANCE RESULT");
 Console.WriteLine("------------------------------------------");
 Console.WriteLine(res.Message);
 Console.WriteLine();
+#endregion
+
+#endregion
+
+
+#region Design Patterns
+
+#region Eager Single pattern demo
+
+UserService userService = new();
+
+InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Consumer.OrderService orderServic = new();
+
+PaymentService paymentService = new();
+
+userService.DisplayConfiguration();
+
+orderServic.DisplayConfiguration();
+
+paymentService.DisplayConfiguration();
+
+Console.WriteLine("--------------------------------");
+
+Console.WriteLine(
+    Object.ReferenceEquals(
+        InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._01_EagerSingleton.ConfigurationManager.Instance,
+
+        InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._01_EagerSingleton.ConfigurationManager.Instance));
+
+#endregion
+
+#region Lazy singleton demo
+UserService userServiceLazy = new();
+
+InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Consumer.OrderService orderServiceLazy = new();
+
+PaymentService paymentServiceLazy = new();
+
+userServiceLazy.DisplayConfiguration();
+
+orderServiceLazy.DisplayConfiguration();
+
+paymentServiceLazy.DisplayConfiguration();
+
+Console.WriteLine("--------------------------------");
+
+Console.WriteLine(
+    Object.ReferenceEquals(
+        InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._02_LazySingleton.ConfigurationManager.Instance,
+
+        InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._02_LazySingleton.ConfigurationManager.Instance));
+
+#endregion
+
+#region Factory pattern demo
+PaymentRequests requests = new()
+{
+    OrderId = Guid.NewGuid(),
+    Amount = 2500,
+    Currency = "INR",
+    CustomerEmail = "customer@gmail.com",
+    PaymentMethod = PaymentMethod.Upi
+};
+
+CheckoutServices checkoutServices = new();
+
+PaymentResponse response = checkoutServices.Checkout(requests);
+
+Console.WriteLine($"Status          : {response.IsSuccess}");
+Console.WriteLine($"Transaction Id  : {response.TransactionId}");
+Console.WriteLine($"Message         : {response.Message}");
+#endregion
+
+#region Abstract factory pattern demo
+ServiceCollection services = new();
+
+services.AddCloudPlatform();
+
+ServiceProvider serviceProvider = services.BuildServiceProvider();
+
+ICloudPlatformService cloudPlatformService =
+    serviceProvider.GetRequiredService<ICloudPlatformService>();
+
+InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Models.CloudFile file = new()
+{
+    FileName = "EmployeeReport.pdf",
+    Content = Array.Empty<byte>()
+};
+
+cloudPlatformService.Backup(
+    CloudProvider.Azure,
+    file);
 #endregion
 
 #endregion
