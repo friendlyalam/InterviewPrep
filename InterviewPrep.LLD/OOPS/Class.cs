@@ -80,7 +80,7 @@
 
         private string[] skills = new string[5];
 
-        public string this[int index]
+        public string this[int index]//This allows the object to be accessed like an array:
         {
             get
             {

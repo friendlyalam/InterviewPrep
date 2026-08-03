@@ -342,6 +342,7 @@ public sealed class Employee
 | Can have constructors                                | Only static constructor         |
 | Cannot be inherited                                  | Cannot be inherited             |
 | Used for business objects that shouldn't be extended | Used for utility/helper classes |
+| can contain indexers, events, and nested types       | Cannot contain indexers
 
 ========================================================================================================
 Example

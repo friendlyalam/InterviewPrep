@@ -40,21 +40,31 @@ Its method is called directly with the class name.
 ====================================================================================
 Real World Example
 
-Imagine a calculator.
+1. Calculator (Best ⭐⭐⭐⭐⭐)
 
-Do you need to create a calculator object every time you want to add two numbers?
+Interviewer: Can you give a real-world example of a static class?
 
-No.
+Answer:
 
-Instead,
+A calculator is a good analogy. A calculator performs operations like addition, subtraction, multiplication, and division,
+but it doesn't maintain any user-specific state. Whether one person or a thousand people use it, the logic remains the same. Similarly, 
+the .NET Math class is static because it provides common utility methods that don't require creating an object.
 
-Calculator.Add(10,20)
+2. Company Configuration (Enterprise Example ⭐⭐⭐⭐⭐)
 
-is enough.
+Answer:
 
-The calculator has no state.
+In an enterprise application, company-wide configuration is a good example. 
+Information such as the company name, support email, or application version is shared across the entire application.
+Every module reads the same values, so creating multiple objects would be unnecessary.
 
-It only performs operations.
+3. Logger (Product Company Example ⭐⭐⭐⭐⭐)
+
+Answer:
+
+A logging utility is another good example. Every module in an application may need to log information,
+but logging itself doesn't require maintaining object-specific state. Instead of creating a new logger object everywhere,
+a shared utility can expose common logging methods.
 
 Therefore it should be static.
 =====================================================================================
@@ -263,7 +273,7 @@ One Copy Exists
 
 All Threads Use It
 
-Static data is associated with the type, not with an object. There is one copy per application domain/process (depending on runtime context), rather than one copy per instance.
+Static data is associated with the type(class), not with an object. There is one copy per application domain/process (depending on runtime context), rather than one copy per instance.
 
 =========================================================================================================
 | Static Class                          | Normal Class                          |
@@ -396,7 +406,7 @@ static class Validator
 Common Interview Questions
 1. What is a static class?
 
-A static class cannot be instantiated and contains only static members. It groups functionality that belongs to the type rather than to individual objects.
+A static class cannot be instantiated and contains only static members. It groups functionality that belongs to the type(class) rather than to individual objects.
 
 2. Why use a static class?
 
@@ -532,7 +542,8 @@ Interviewers often ask:
 
 The correct answer is:
 
-The type owns it. Static members belong to the class/type itself, not to any object. The CLR maintains one shared copy for that type, which is why you access it using the class name:
+The type owns it. Static members belong to the class/type itself, not to any object.
+The CLR maintains one shared copy for that type, which is why you access it using the class name:
 
 Logger.Count++;
 Math.Sqrt(25);
@@ -545,6 +556,28 @@ Because logging does not require object-specific state. There should be one shar
 
 17. Why shouldn't Employee be static?
     Because every employee has different data. If Employee were static, there would only be one shared Name and Id, which is incorrect.
+
+    18.Can a Static Class Have an Indexer?
+❌ No
+
+Example:
+
+public static class MyClass
+{
+    public string this[int index]   // ❌ Compile-time error
+    {
+        get { return ""; }
+        set { }
+    }
+}
+Why?
+
+An indexer is used on an object.
+
+19.Can a Static Class Have Events?
+✅ Yes
+
+But the event itself must be static.
 
 =================================================================================
 Product Company Best Practices

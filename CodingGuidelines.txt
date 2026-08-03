@@ -1,0 +1,486 @@
+1. General Principles
+Write code for humans first, computers second.
+Keep code simple and easy to understand.
+Follow the KISS (Keep It Simple, Stupid) principle.
+Follow the DRY (Don't Repeat Yourself) principle.
+Follow the YAGNI (You Aren't Gonna Need It) principle.
+Prefer readability over cleverness.
+Every line of code should have a purpose.
+Make code easy to modify and extend.
+Avoid unnecessary complexity.
+
+-----------------------------------
+2. Naming Conventions
+Classes
+
+Use PascalCase.
+
+public class OrderService
+public class CustomerRepository
+public class PaymentProcessor
+
+-----------------------------------------------
+Methods
+
+Use PascalCase.
+
+CreateOrder()
+UpdateCustomer()
+CalculatePrice()
+
+Method names should always be verbs.
+
+-----------------------------------
+Properties
+
+Use PascalCase.
+
+public string FirstName { get; set; }
+
+public decimal TotalAmount { get; set; }
+
+------------------------------------
+Variables
+
+Use camelCase.
+
+var customerName
+
+int totalPrice
+
+bool isCompleted
+
+-------------------------------------------
+Private Fields
+private readonly IOrderRepository _orderRepository;
+
+private readonly ILogger<OrderService> _logger;
+Constants
+public const int MaxRetryCount = 3;
+
+public const string AdminRole = "Admin";
+
+---------------------------------------
+Interfaces
+
+Prefix with I
+
+IOrderRepository
+
+IEmailService
+
+ICustomerService
+--------------------------------------
+Enums
+public enum OrderStatus
+{
+    Pending,
+    Approved,
+    Shipped
+}
+
+-----------------------------------------
+3. Method Guidelines
+
+A method should:
+
+Do only one thing.
+Be easy to understand.
+Be short.
+Return one logical result.
+Avoid side effects.
+
+Bad
+
+CreateOrderAndSendEmailAndGenerateInvoice()
+
+Good
+
+CreateOrder()
+
+SendEmail()
+
+GenerateInvoice()
+
+--------------------------------------------------
+4. Class Guidelines
+
+Each class should have only one responsibility.
+--------------------------
+Bad
+
+CustomerService
+
+Create Customer
+
+Delete Customer
+
+Generate Invoice
+
+Send Email
+
+Export Excel
+
+Generate PDF
+--------------------------
+
+Good
+
+CustomerService
+
+CustomerRepository
+
+EmailService
+
+InvoiceService
+
+ExportService
+
+---------------------------------------------
+5. Dependency Injection
+
+Depend on abstractions.
+---------------------
+Good
+
+public class OrderService
+{
+    private readonly IOrderRepository _repository;
+
+    public OrderService(IOrderRepository repository)
+    {
+        _repository = repository;
+    }
+}
+-------------------------------------
+Avoid
+
+private OrderRepository repository = new OrderRepository();
+
+----------------------------
+6. Exception Handling
+
+Catch only when necessary.
+
+Bad
+
+catch(Exception)
+{
+}
+
+Good
+
+catch(SqlException ex)
+{
+    _logger.LogError(ex,"Database error");
+    throw;
+}
+
+Never swallow exceptions.
+
+-----------------------------
+
+7. Logging
+
+Log important events.
+
+Log
+
+Errors
+Warnings
+External API calls
+Authentication
+Critical business operations
+
+Do not log
+
+Passwords
+Tokens
+Secrets
+Personal information
+
+-----------------------------------------
+8. Validation
+
+Validate input immediately.
+
+if(order == null)
+    throw new ArgumentNullException(nameof(order));
+
+    -----------------------------------------
+
+9. Async Programming
+
+Use async for I/O operations.
+
+Good
+
+await repository.GetByIdAsync(id);
+
+Avoid
+
+.Result
+
+.Wait()
+
+Never block async code.
+
+-----------------------------------------
+
+10. LINQ
+
+Keep LINQ readable.
+
+Good
+
+var customers = customersList
+    .Where(x => x.IsActive)
+    .OrderBy(x => x.Name)
+    .ToList();
+
+Avoid huge LINQ expressions.
+
+-------------------------------------
+
+11. SQL
+
+Always use parameterized queries.
+
+Good
+
+SELECT *
+FROM Customers
+WHERE Id=@Id
+
+Never concatenate SQL strings.
+
+-----------------------------------
+
+12. Repository Guidelines
+
+Repository should only access data.
+
+Don't
+
+Business logic
+Email
+Validation
+
+Only
+
+CRUD
+Database queries
+
+-------------------------------------
+13. Service Guidelines
+
+Service layer contains business rules.
+
+Responsibilities
+
+Validation
+Business logic
+Calling repositories
+Calling external APIs
+------------------------------------------------
+14. Controller Guidelines
+
+Controller should be thin.
+
+Controller should
+
+Receive request
+Validate model
+Call service
+Return response
+
+Avoid business logic inside controllers.
+
+---------------------------
+
+15. Comments
+
+Write comments only when needed.
+
+Good
+
+// Retry because payment gateway occasionally returns timeout.
+
+Bad
+
+// Increment i
+i++;
+
+----------------------------
+16. Magic Numbers
+
+Avoid
+
+if(age > 18)
+
+Prefer
+
+const int MinimumAge = 18;
+
+if(age > MinimumAge)
+
+----------------------
+17. Configuration
+
+Never hardcode
+
+Connection strings
+URLs
+API Keys
+Secrets
+
+Store in configuration.
+
+---------------------------------
+
+18. Null Handling
+
+Prefer
+
+ArgumentNullException.ThrowIfNull(customer);
+
+Use nullable reference types.
+
+--------------------------
+
+19. Immutability
+
+Prefer readonly whenever possible.
+
+private readonly ILogger _logger;
+
+-----------------------------
+20. SOLID Principles
+Single Responsibility Principle (SRP)
+Open Closed Principle (OCP)
+Liskov Substitution Principle (LSP)
+Interface Segregation Principle (ISP)
+Dependency Inversion Principle (DIP)
+
+----------------------------
+21. Clean Code Rules
+Small classes
+Small methods
+Clear naming
+No duplicate code
+Low coupling
+High cohesion
+
+----------------------------
+22. Performance Guidelines
+Avoid unnecessary database calls.
+Select only required columns.
+Use pagination for large data.
+Cache frequently used data.
+Avoid nested loops when possible.
+Prefer HashSet<T> for frequent lookups.
+Avoid unnecessary object creation.
+
+---------------------------------
+23. Security Guidelines
+Validate all user input.
+Sanitize input.
+Use HTTPS.
+Never expose stack traces.
+Hash passwords.
+Store secrets securely.
+Implement authorization checks.
+
+---------------------------------
+24. Unit Testing
+
+Test
+
+Business logic
+Edge cases
+Failure scenarios
+
+Avoid testing framework code.
+
+------------------------------
+25. Folder Structure
+Controllers/
+
+Services/
+
+Repositories/
+
+Entities/
+
+DTOs/
+
+Interfaces/
+
+Configurations/
+
+Middlewares/
+
+Extensions/
+
+Mappings/
+
+Validators/
+
+Common/
+
+Utilities/
+
+Tests/
+
+------------------------------
+26. Code Review Checklist
+Meaningful names
+Single responsibility
+No duplicate code
+Proper exception handling
+Logging added
+Validation implemented
+Async where appropriate
+No hardcoded values
+Secure coding practices followed
+Unit tests added or updated
+
+---------------------------------
+27. Git Guidelines
+Commit small, logical changes.
+Write meaningful commit messages.
+Keep the main branch stable.
+Rebase or merge regularly.
+Review code before merging.
+Delete merged feature branches.
+
+Example commit messages:
+
+feat: add order creation API
+
+fix: resolve null reference in payment service
+
+refactor: simplify customer validation logic
+
+test: add unit tests for invoice service
+
+docs: update API documentation
+
+---------------------------------------
+28. Enterprise Mindset
+
+Before writing code, ask yourself:
+
+Is this code easy to understand?
+Can another developer maintain it?
+Does it follow SOLID principles?
+Is it testable?
+Is it secure?
+Is it performant?
+Is it scalable?
+Is it reusable?
+Is it loosely coupled?
+Does it follow project conventions?
+Golden Rule
+
+Write code as if the next developer maintaining it is a highly skilled teammate who deserves clear, simple, well-tested, and well-documented code.

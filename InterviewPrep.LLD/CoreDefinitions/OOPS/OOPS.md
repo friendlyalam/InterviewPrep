@@ -1,6 +1,7 @@
 ﻿Definition
 
-Object-Oriented Programming (OOP) is a programming paradigm (style of programming) in which software is designed using objects that contain both data (properties/fields) and behaviour (methods).
+Object-Oriented Programming (OOP) is a programming paradigm (style of programming) in which software is designed using
+objects that contain both data (properties/fields) and behaviour (methods).
 
 Simple Definition
 
@@ -53,6 +54,8 @@ Accelerate()
 
 Brake()
 
+
+----------------------------------------------------
 In C#, we represent this using a class and create an object.
 
 Before OOP (Procedural Programming)
@@ -94,6 +97,8 @@ Billing
 Pharmacy
 
 Each class manages its own data and behaviour.
+
+------------------------------------
 
 Real-Life Example
 
@@ -156,6 +161,8 @@ Difficult maintenance
 Hard to extend
 
 OOP solves these problems.
+
+---------------------------------------------------------
 
 Benefits of OOP
 1. Code Reusability
@@ -569,4 +576,5 @@ Application
 
 ├── Product
 
-Each class has its own responsibility, and together they build a complete, maintainable application. This is why OOP is the foundation of modern enterprise applications in C# and .NET.
+Each class has its own responsibility, and together they build a complete, maintainable application. 
+This is why OOP is the foundation of modern enterprise applications in C# and .NET.

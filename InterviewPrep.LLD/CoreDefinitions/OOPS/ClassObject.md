@@ -37,7 +37,8 @@ class ClassName{
 
 =============================
 Declaration of Class
-A class declaration begins with the class keyword followed by the class name. However, some optional attributes can be used with class declaration according to the application requirement. Class declarations can include these components, in order:
+A class declaration begins with the class keyword followed by the class name. However, some optional attributes can be used with
+class declaration according to the application requirement. Class declarations can include these components, in order:
 
 Modifiers: Define the accessibility of a class. By default, a class is internal.
 Keyword class: Used to declare a class.
@@ -246,6 +247,7 @@ For a normal class instance:
 
 The object data is typically allocated on the managed heap.
 A local variable like car1 holds a reference to that object (the reference itself is stored where the variable lives, such as the stack for a local variable).
+
 5. Does a class occupy memory?
 
 The class definition (metadata) exists in the program, but instance data is not allocated until you create an object with new.
