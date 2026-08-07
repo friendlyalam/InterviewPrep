@@ -1,4 +1,12 @@
 ﻿using InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Consumer;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Adapter;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.ThirdParty;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Enums;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Models;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Services;
@@ -634,6 +642,8 @@ Console.WriteLine();
 
 #region Design Patterns
 
+#region Creational pattern
+
 #region Eager Single pattern demo
 
 UserService userService = new();
@@ -719,6 +729,90 @@ InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Mo
 cloudPlatformService.Backup(
     CloudProvider.Azure,
     file);
+#endregion
+#endregion
+
+#region Behavioural pattern
+#region Strategy pattern demo
+ServiceCollection serviceCollection = new();
+
+serviceCollection.AddPricingServices();
+
+ServiceProvider provider = services.BuildServiceProvider();
+
+IPricingService pricingService =
+    provider.GetRequiredService<IPricingService>();
+
+Product product = new()
+{
+    Id = 1,
+    Name = "MacBook Pro",
+    BasePrice = 200000
+};
+
+PricingContext context = new()
+{
+    Product = product,
+    CustomerType = "Festival",
+    DiscountPercentage = 20
+};
+
+decimal finalPrice = pricingService.CalculatePrice(context);
+
+Console.WriteLine($"Original Price : {product.BasePrice:C}");
+Console.WriteLine($"Final Price    : {finalPrice:C}");
+#endregion
+#endregion
+
+#region Structural pattern
+
+#region Decorator pattern demo
+InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Models.NotificationMessage message = new()
+{
+    Recipient = "customer@company.com",
+    Subject = "Order Shipped",
+    Body = "Your order has been shipped."
+};
+
+InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Interfaces.INotificationService service =
+    new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.PerformanceDecorator(
+        new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.RetryDecorator(
+            new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.LoggingDecorator(
+                new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Services.EmailNotificationService())));
+
+await service.SendAsync(message);
+#endregion
+
+#region Adapter pattern demo
+FileUploadRequest fileUploadRequest = new()
+{
+    FileName = "resume.pdf",
+    FolderName = "documents",
+    Content = new byte[] { 1, 2, 3, 4 },
+    ContentType = "application/pdf"
+};
+
+// Change only this line to switch providers
+
+ICloudStorageService cloudStorage =
+    new AzureStorageAdapter(new AzureBlobClient());
+
+// ICloudStorageService cloudStorage =
+//     new AmazonS3Adapter(new AmazonS3Client());
+
+// ICloudStorageService cloudStorage =
+    new GoogleStorageAdapter(new GoogleCloudStorageClient());
+
+InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Models.UploadResult uploadResult = cloudStorage.Upload(fileUploadRequest);
+
+Console.WriteLine();
+
+Console.WriteLine($"Provider : {uploadResult.Provider}");
+Console.WriteLine($"Success  : {uploadResult.Success}");
+Console.WriteLine($"URL      : {uploadResult.FileUrl}");
+Console.WriteLine($"Message  : {uploadResult.Message}");
+#endregion
+
 #endregion
 
 #endregion
