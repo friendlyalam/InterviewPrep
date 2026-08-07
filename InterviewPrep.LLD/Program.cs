@@ -2,11 +2,18 @@
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.DependencyInjection;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Publishers;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Subscibers;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Adapter;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Models;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.ThirdParty;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Facades;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Models;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Enums;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Models;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Services;
@@ -43,6 +50,8 @@ using CloudFile = InterviewPrep.LLD.OOPS.Polymorphism.CloudFile;
 using EmailService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.EmailService;
 using Employee = InterviewPrep.LLD.OOPS.PartialClass.Employee;
 using OrderService = InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.OrderService;
+using PaymentService = InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Consumer.PaymentService;
+using UploadResult = InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Models.UploadResult;
 #region OOPS
 
 #region Class Demo
@@ -333,7 +342,7 @@ storage.Upload("Resume.pdf", "Documents");
 storage.Upload("Resume.pdf", "Documents", true);
 #endregion
 #region Method Overriding demo
-NotificationService notification =
+InterviewPrep.LLD.OOPS.Polymorphism.NotificationService notification =
             new SmsNotification();
 
 notification.Send("Order Delivered");
@@ -473,11 +482,11 @@ InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Models.Order ord = n
 IOrderRepository repository =
     new OrderRepository();
 
-IInventoryService inventory =
-    new InventoryService();
+InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Interfaces.IInventoryService inventory =
+    new InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.InventoryService();
 
-IInvoiceService invoice =
-    new InvoiceService();
+InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Interfaces.IInvoiceService invoice =
+    new InterviewPrep.LLD.SolidPrinciples.SRP.OrderProcessingSystem.Services.InvoiceService();
 
 IEmailService email =
     new EmailService();
@@ -618,7 +627,7 @@ AttendanceRecord attendance = new AttendanceRecord
 };
 
 // Dependency Selection
-INotificationService notificationService =
+InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Interfaces.INotificationService notificationService =
     new EmailNotificationService();
 
 // Constructor Injection
@@ -762,6 +771,35 @@ decimal finalPrice = pricingService.CalculatePrice(context);
 Console.WriteLine($"Original Price : {product.BasePrice:C}");
 Console.WriteLine($"Final Price    : {finalPrice:C}");
 #endregion
+
+#region Observer pattern demo
+OrderPublisher publisher = new();
+
+publisher.Subscribe(new EmailSubscriber());
+
+publisher.Subscribe(new SmsSubscriber());
+
+publisher.Subscribe(new InventorySubscriber());
+
+publisher.Subscribe(new AnalyticsSubscriber());
+
+publisher.Subscribe(new AuditSubscriber());
+
+ObserverOrder observerOrder = new()
+{
+    OrderId = "ORD-1001",
+    CustomerId = 101,
+    CustomerEmail = "customer@company.com",
+    Amount = 4999
+};
+
+OrderPlacedEvent orderEvent = new()
+{
+    Order = observerOrder
+};
+
+publisher.Publish(orderEvent);
+#endregion
 #endregion
 
 #region Structural pattern
@@ -811,6 +849,41 @@ Console.WriteLine($"Provider : {uploadResult.Provider}");
 Console.WriteLine($"Success  : {uploadResult.Success}");
 Console.WriteLine($"URL      : {uploadResult.FileUrl}");
 Console.WriteLine($"Message  : {uploadResult.Message}");
+#endregion
+
+#region Facade pattern demo
+
+OrderRequest orderRequest = new()
+{
+    CustomerId = 101,
+
+    ProductId = 2001,
+
+    Quantity = 2,
+
+    Amount = 4999,
+
+    DeliveryAddress = "Noida, India",
+
+    Email = "customer@company.com"
+};
+
+IOrderFacade orderFacade =
+    new OrderFacade(
+        new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services.InventoryService(),
+        new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services.PaymentService(),
+        new ShippingService(),
+        new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services.InvoiceService(),
+        new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services.NotificationService());
+
+OrderResult orderResult =
+    orderFacade.PlaceOrder(orderRequest);
+
+Console.WriteLine();
+
+Console.WriteLine($"Success : {orderResult.Success}");
+Console.WriteLine($"Order   : {orderResult.OrderNumber}");
+Console.WriteLine($"Message : {orderResult.Message}");
 #endregion
 
 #endregion
