@@ -13,6 +13,9 @@ using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_Mediator
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Models;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Requests;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.Handlers;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.Models;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Adapter;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Interfaces;
@@ -22,6 +25,9 @@ using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePat
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Models;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._03_FacadePattern.Services;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._04_ProxyPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._04_ProxyPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._04_ProxyPattern.Models;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Enums;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Models;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._02_FactoryPattern.Services;
@@ -960,6 +966,69 @@ Console.WriteLine("======================================");
 Console.WriteLine("          DEMO COMPLETED");
 Console.WriteLine("======================================");
 #endregion
+
+#region  Chain of Responsibility pattern demo
+ServiceCollection responsibilityServices = new();
+
+responsibilityServices.AddExpenseApproval();
+
+using ServiceProvider responsibilityServiceProvider =
+    responsibilityServices.BuildServiceProvider();
+
+using IServiceScope responsibilityScope =
+    responsibilityServiceProvider.CreateScope();
+
+ExpenseHandler expenseHandler =
+    responsibilityScope.ServiceProvider.GetRequiredService<ExpenseHandler>();
+
+Console.WriteLine("==========================================");
+Console.WriteLine("     CHAIN OF RESPONSIBILITY DEMO");
+Console.WriteLine("==========================================");
+
+ProcessExpense(
+    expenseHandler,
+    new ExpenseRequest(
+        EmployeeId: 101,
+        Amount: 5_000,
+        Description: "Office supplies"));
+
+ProcessExpense(
+    expenseHandler,
+    new ExpenseRequest(
+        EmployeeId: 102,
+        Amount: 30_000,
+        Description: "Business travel"));
+
+ProcessExpense(
+    expenseHandler,
+    new ExpenseRequest(
+        EmployeeId: 103,
+        Amount: 80_000,
+        Description: "Client event"));
+
+ProcessExpense(
+    expenseHandler,
+    new ExpenseRequest(
+        EmployeeId: 104,
+        Amount: 150_000,
+        Description: "Conference"));
+
+static void ProcessExpense(
+    ExpenseHandler handler,
+    ExpenseRequest request)
+{
+    Console.WriteLine();
+    Console.WriteLine("------------------------------------------");
+    Console.WriteLine($"Employee    : {request.EmployeeId}");
+    Console.WriteLine($"Amount      : ₹{request.Amount:N0}");
+    Console.WriteLine($"Description : {request.Description}");
+    Console.WriteLine("------------------------------------------");
+
+    string result = handler.Handle(request);
+
+    Console.WriteLine($"Result      : {result}");
+}
+#endregion
 #endregion
 
 #region Structural pattern
@@ -972,13 +1041,13 @@ InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPatter
     Body = "Your order has been shipped."
 };
 
-InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Interfaces.INotificationService service =
+InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Interfaces.INotificationService notificationsService =
     new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.PerformanceDecorator(
         new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.RetryDecorator(
             new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators.LoggingDecorator(
                 new InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Services.EmailNotificationService())));
 
-await service.SendAsync(message);
+await notificationsService.SendAsync(message);
 #endregion
 
 #region Adapter pattern demo
@@ -999,7 +1068,7 @@ ICloudStorageService cloudStorage =
 //     new AmazonS3Adapter(new AmazonS3Client());
 
 // ICloudStorageService cloudStorage =
-    new GoogleStorageAdapter(new GoogleCloudStorageClient());
+new GoogleStorageAdapter(new GoogleCloudStorageClient());
 
 InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Models.UploadResult uploadResult = cloudStorage.Upload(fileUploadRequest);
 
@@ -1044,6 +1113,46 @@ Console.WriteLine();
 Console.WriteLine($"Success : {orderResult.Success}");
 Console.WriteLine($"Order   : {orderResult.OrderNumber}");
 Console.WriteLine($"Message : {orderResult.Message}");
+#endregion
+
+#region Proxy pattern demo
+ServiceCollection proxyServices = new();
+
+proxyServices.AddProductImageServices();
+
+using ServiceProvider proxyServiceProvider =
+    proxyServices.BuildServiceProvider();
+
+using IServiceScope proxyScope =
+    proxyServiceProvider.CreateScope();
+
+IProductImageService imageService =
+    proxyScope.ServiceProvider.GetRequiredService<IProductImageService>();
+
+Console.WriteLine("==========================================");
+Console.WriteLine("           PROXY PATTERN DEMO");
+Console.WriteLine("==========================================");
+
+Console.WriteLine();
+Console.WriteLine("First request:");
+ProductImage image1 =
+    await imageService.GetImageAsync(101);
+
+Console.WriteLine($"Image URL: {image1.Url}");
+
+Console.WriteLine();
+Console.WriteLine("Second request for the same product:");
+ProductImage image2 =
+    await imageService.GetImageAsync(101);
+
+Console.WriteLine($"Image URL: {image2.Url}");
+
+Console.WriteLine();
+Console.WriteLine("Request for another product:");
+ProductImage image3 =
+    await imageService.GetImageAsync(202);
+
+Console.WriteLine($"Image URL: {image3.Url}");
 #endregion
 
 #endregion
