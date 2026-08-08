@@ -5,6 +5,14 @@ using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_Strategy
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Models;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Publishers;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._02_ObserverPattern.Subscibers;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._03_CommandPattern.Commands;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._03_CommandPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._03_CommandPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._03_CommandPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Interfaces;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Models;
+using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_MediatorPattern.Requests;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Adapter;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Interfaces;
@@ -799,6 +807,158 @@ OrderPlacedEvent orderEvent = new()
 };
 
 publisher.Publish(orderEvent);
+#endregion
+
+#region Command pattern demo
+ServiceCollection commandServices = new();
+
+commandServices.AddCommandPatternServices();
+
+using ServiceProvider commandServiceProvider = commandServices.BuildServiceProvider();
+
+using IServiceScope serviceScope = commandServiceProvider.CreateScope();
+
+IServiceProvider scopedProvider = serviceScope.ServiceProvider;
+
+Console.WriteLine("======================================");
+Console.WriteLine("      COMMAND PATTERN DEMO");
+Console.WriteLine("======================================");
+
+Console.WriteLine();
+Console.WriteLine("Creating Order...");
+Console.WriteLine("--------------------------------------");
+
+ICommandHandler<CreateOrderCommand, CommandResult>
+    createOrderHandler =
+        scopedProvider.GetRequiredService<
+            ICommandHandler<CreateOrderCommand, CommandResult>>();
+
+CreateOrderCommand createCommand = new(
+    CustomerId: 101,
+    ProductId: 5001,
+    Quantity: 2,
+    Price: 1499.00m);
+
+CommandResult createResult =
+    await createOrderHandler.HandleAsync(createCommand);
+
+Console.WriteLine($"Success : {createResult.Success}");
+Console.WriteLine($"Message : {createResult.Message}");
+
+CommandOrder? commandOrder = createResult.Data as CommandOrder;
+
+if (commandOrder is null)
+{
+    Console.WriteLine("Order creation failed.");
+    return;
+}
+
+Console.WriteLine($"Order ID : {commandOrder.Id}");
+Console.WriteLine($"Amount   : {commandOrder.TotalAmount:C}");
+Console.WriteLine($"Status   : {commandOrder.Status}");
+
+Console.WriteLine();
+Console.WriteLine("Cancelling Order...");
+Console.WriteLine("--------------------------------------");
+
+ICommandHandler<CancelOrderCommand, CommandResult>
+    cancelOrderHandler =
+        scopedProvider.GetRequiredService<
+            ICommandHandler<CancelOrderCommand, CommandResult>>();
+
+CancelOrderCommand cancelCommand = new(commandOrder.Id);
+
+CommandResult cancelResult =
+    await cancelOrderHandler.HandleAsync(cancelCommand);
+
+Console.WriteLine($"Success : {cancelResult.Success}");
+Console.WriteLine($"Message : {cancelResult.Message}");
+
+CommandOrder? cancelledOrder = cancelResult.Data as CommandOrder;
+
+if (cancelledOrder is not null)
+{
+    Console.WriteLine($"Order ID : {cancelledOrder.Id}");
+    Console.WriteLine($"Status   : {cancelledOrder.Status}");
+}
+
+Console.WriteLine();
+Console.WriteLine("Processing Refund...");
+Console.WriteLine("--------------------------------------");
+
+ICommandHandler<RefundOrderCommand, CommandResult>
+    refundOrderHandler =
+        scopedProvider.GetRequiredService<
+            ICommandHandler<RefundOrderCommand, CommandResult>>();
+
+RefundOrderCommand refundCommand = new(
+    OrderId: commandOrder.Id,
+    Amount: commandOrder.TotalAmount);
+
+CommandResult refundResult =
+    await refundOrderHandler.HandleAsync(refundCommand);
+
+Console.WriteLine($"Success : {refundResult.Success}");
+Console.WriteLine($"Message : {refundResult.Message}");
+
+Console.WriteLine();
+Console.WriteLine("======================================");
+Console.WriteLine("          DEMO COMPLETED");
+Console.WriteLine("======================================");
+#endregion
+
+#region Mediator pattern demo
+ServiceCollection MediatorCollectionservices = new();
+
+MediatorCollectionservices.AddMediatorPattern();
+
+using ServiceProvider mediatorServiceProvider =
+    MediatorCollectionservices.BuildServiceProvider();
+
+using IServiceScope scope =
+    mediatorServiceProvider.CreateScope();
+
+IMediator mediator =
+    scope.ServiceProvider.GetRequiredService<IMediator>();
+
+Console.WriteLine("======================================");
+Console.WriteLine("       MEDIATOR PATTERN DEMO");
+Console.WriteLine("======================================");
+
+Console.WriteLine();
+Console.WriteLine("Submitting valid leave request...");
+Console.WriteLine("--------------------------------------");
+
+LeaveRequest validRequest = new(
+    EmployeeId: 101,
+    NumberOfDays: 3,
+    Reason: "Family function");
+
+LeaveResult validResult =
+    await mediator.SendAsync(validRequest);
+
+Console.WriteLine($"Approved : {validResult.Approved}");
+Console.WriteLine($"Message  : {validResult.Message}");
+
+Console.WriteLine();
+Console.WriteLine("Submitting invalid leave request...");
+Console.WriteLine("--------------------------------------");
+
+LeaveRequest invalidRequest = new(
+    EmployeeId: 101,
+    NumberOfDays: 15,
+    Reason: "Vacation");
+
+LeaveResult invalidResult =
+    await mediator.SendAsync(invalidRequest);
+
+Console.WriteLine($"Approved : {invalidResult.Approved}");
+Console.WriteLine($"Message  : {invalidResult.Message}");
+
+Console.WriteLine();
+Console.WriteLine("======================================");
+Console.WriteLine("          DEMO COMPLETED");
+Console.WriteLine("======================================");
 #endregion
 #endregion
 
