@@ -215,12 +215,12 @@ Only the Developer object exists.
 ----------------------------------------------------------------------------
 Characteristics of an Abstract Class
 
-1. Cannot Create Object
+1. Cannot Create Object:
 Employee emp = new Employee();
 
 ❌ Not allowed
 
-2. Can Have Constructors
+2. Can Have Constructors:
 public abstract class Employee
 {
     public Employee()
@@ -231,22 +231,28 @@ public abstract class Employee
 
 The constructor runs when a derived object is created.
 
-3. Can Have Fields
+3. Can Have Fields:
 protected int id;
-4. Can Have Properties
+
+
+4. Can Have Properties:
 public string Name
 {
     get;
     set;
 }
-5. Can Have Methods
+
+
+5. Can Have Methods:
 public void Display()
 {
 
 }
-6. Can Have Abstract Methods
+6. Can Have Abstract Methods:
 public abstract void Save();
-7. Can Have Static Methods
+
+
+7. Can Have Static Methods:
 public static void CompanyPolicy()
 {
 
@@ -285,6 +291,8 @@ Net Banking
 
 Each payment type processes payments differently.
 
+---------------------------------------------
+
 Shape
 Shape
 
@@ -301,6 +309,8 @@ Rectangle
 Triangle
 
 Every shape calculates area differently.
+
+------------------------------------------------------------------
 
 Employee
 Employee

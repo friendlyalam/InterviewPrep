@@ -376,7 +376,7 @@ Caller doesn't know.
 -------------------------------------------------------------------------------------------------
 Characteristics
 
-Cannot Instantiate
+Cannot Instantiate:
 Payment payment =
     new Payment();
 
@@ -405,9 +405,10 @@ Forces Child Classes
 Every child must implement
 
 ProcessPayment();
+
 ----------------------------------------------------------------------------
 Advantages
-Hides Complexity
+Hides Complexity:
 
 Users see
 
@@ -415,23 +416,23 @@ Pay
 
 instead of 25 internal steps
 
-Easier Maintenance
+Easier Maintenance:
 
 Implementation changes.
 
 Caller doesn't change.
 
-Better Security
+Better Security:
 
 Internal logic remains hidden.
 
-Better Reusability
+Better Reusability:
 
 Many payment methods.
 
 Same interface.
 
-Cleaner Code
+Cleaner Code:
 
 Instead of
 
@@ -449,6 +450,7 @@ Caller writes
 
 ProcessPayment()
 
+-------------------------------------------------------------------------------------------------------
 
 Disadvantages
 
@@ -494,19 +496,23 @@ When you want to:
 Share common implementation.
 Prevent direct instantiation.
 Force derived classes to implement required behaviour.
+
 7. Why use an interface instead of an abstract class?
 
-When you need a contract that multiple unrelated classes can implement, especially because C# supports multiple interface implementation but only single class inheritance.
+When you need a contract that multiple unrelated classes can implement, especially because C# supports
+multiple interface implementation but only single class inheritance.
 
 8. Is abstraction compile-time or runtime?
 
 The concept itself is a design principle, not something tied to compile time or runtime.
 
-However, when abstraction is implemented with abstract classes or interfaces and overridden methods, the concrete implementation is selected at runtime through polymorphism.
+However, when abstraction is implemented with abstract classes or interfaces and overridden methods,
+the concrete implementation is selected at runtime through polymorphism.
 
 9. Does abstraction improve security?
 
-It helps reduce exposure of internal implementation, but it is not a security mechanism by itself. Protecting data is primarily the role of encapsulation and 
+It helps reduce exposure of internal implementation, 
+but it is not a security mechanism by itself. Protecting data is primarily the role of encapsulation and 
 appropriate access control.
 
 10. Give a real-world example.

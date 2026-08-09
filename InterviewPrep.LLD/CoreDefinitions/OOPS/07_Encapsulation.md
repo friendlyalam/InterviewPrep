@@ -42,7 +42,9 @@ Without encapsulation:
 Invalid data can enter the system.
 Business rules are ignored.
 The application becomes unreliable.
-With Encapsulation
+
+
+With Encapsulation:
 public class Employee
 {
     private decimal salary;
@@ -111,7 +113,7 @@ This is encapsulation.
 
       Cash
 
-      ----------------------
+----------------------
 
       Public
 
@@ -121,9 +123,8 @@ This is encapsulation.
 
       CheckBalance()
 
-      ----------------------------------------------------------------------------------------------------------------------------------------------
-
-      Real-Life Example 2 – Car
+----------------------------------------------------------------------------------------------------------------------------------------------
+Real-Life Example 2 – Car
 
 A car contains:
 
@@ -323,6 +324,7 @@ Password
 Salary
 Bank Balance
 PIN
+
 2. Validation
 
 You can prevent invalid data.
@@ -434,6 +436,8 @@ public decimal Balance;
 
 Anyone can modify it directly, so business rules cannot be enforced.
 
+-----------------------------------------------------------------------------------------
+
 Product Company Best Practices
 
 Instead of:
@@ -464,5 +468,6 @@ This keeps the object in a valid state and centralises business logic.
 
 One-Line Interview Answer
 
-Encapsulation is the OOP principle of bundling data and the operations on that data within a class while restricting direct access to the internal state and exposing controlled,
+Encapsulation is the OOP principle of bundling data and the operations on that data within a
+class while restricting direct access to the internal state and exposing controlled,
 validated access through a well-defined public interface.

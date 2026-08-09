@@ -439,7 +439,7 @@ For interfaces: ✅ Yes
 To avoid the Diamond Problem, where a derived class inherits conflicting implementations from multiple base classes.
 
 6. What is the difference between base and this?
-base	this
+base	                    this
 Refers to the base class	Refers to the current object
 Calls base constructor or methods	Accesses current class members
 7. Constructor execution order?
