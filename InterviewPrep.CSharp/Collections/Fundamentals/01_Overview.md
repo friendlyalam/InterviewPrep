@@ -420,14 +420,19 @@ For example:
 
 Need ordered items + index?
 List<T>
+
 Need lookup by key?
 Dictionary<TKey,TValue>
+
 Need unique values?
 HashSet<T>
+
 Need FIFO?
 Queue<T>
+
 Need LIFO?
 Stack<T>
+
 Need linked nodes?
 LinkedList<T>
 
@@ -474,7 +479,7 @@ Remove
 Count
 
 --------------------------------------------------------------
-17. example of program  with overview
+17. example of program  with overview insepatate file
 
 ---------------------------------------------------------------------
 18. What Happened Internally?
