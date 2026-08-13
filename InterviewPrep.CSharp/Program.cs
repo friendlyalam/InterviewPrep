@@ -5,8 +5,10 @@ using InterviewPrep.CSharp.Collections.Generics._03_HashSet;
 using InterviewPrep.CSharp.Collections.Generics._04_SortedSet;
 using InterviewPrep.CSharp.Collections.Generics._05_Stack;
 using InterviewPrep.CSharp.Collections.Generics._06_Queue;
+using InterviewPrep.CSharp.Collections.Generics._07_LinkedList;
+using InterviewPrep.CSharp.Collections.Generics._08_SortedDictionary;
+using InterviewPrep.CSharp.Collections.Generics._09_SortedList;
 
-Console.WriteLine("Hello, World!");
 
 #region Collection
 
@@ -41,6 +43,24 @@ genericStackExample.StackExample();
 GenericQueueExample genericQueueExample = new GenericQueueExample();
 genericQueueExample.QueueExample();
 #endregion
+
+#region Linkedlist Example
+GenericLinkedListExample genericLinkedListExample = new GenericLinkedListExample();
+genericLinkedListExample.LinkedListExample();
+#endregion
+
+#region SortedDictionary Example
+GenericSortedDictionaryExample genericSortedDictionaryExample = new GenericSortedDictionaryExample();
+genericSortedDictionaryExample.SortedDictionaryExample();
+
+#endregion
+
+#region SortedList Example
+GenericSortedListExample genericSortedListExample = new GenericSortedListExample();
+genericSortedListExample.SortedListExample();
+#endregion
+
+
 #endregion
 
 #endregion
