@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Collections\NonGenerics\" />
+    <None Include="Collections\NonGenerics\03_SortedList\NonGenericSortedListExample.cs" />
   </ItemGroup>
 
 </Project>
