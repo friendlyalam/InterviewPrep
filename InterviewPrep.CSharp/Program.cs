@@ -3,6 +3,8 @@ using InterviewPrep.CSharp.Collections.Generics._01_List;
 using InterviewPrep.CSharp.Collections.Generics._02_Dictionary;
 using InterviewPrep.CSharp.Collections.Generics._03_HashSet;
 using InterviewPrep.CSharp.Collections.Generics._04_SortedSet;
+using InterviewPrep.CSharp.Collections.Generics._05_Stack;
+using InterviewPrep.CSharp.Collections.Generics._06_Queue;
 
 Console.WriteLine("Hello, World!");
 
@@ -28,6 +30,16 @@ genericHashSetExample.HasSetExample();
 #region SortedSet Example
 GenericSortedSetExample genericSortedSetExample = new GenericSortedSetExample();
 genericSortedSetExample.SortedSetExample();
+#endregion
+
+#region Stack Example
+GenericStackExample genericStackExample = new GenericStackExample();
+genericStackExample.StackExample();
+#endregion
+
+#region Queue Example
+GenericQueueExample genericQueueExample = new GenericQueueExample();
+genericQueueExample.QueueExample();
 #endregion
 #endregion
 
