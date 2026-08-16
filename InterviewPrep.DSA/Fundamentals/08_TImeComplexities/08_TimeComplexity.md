@@ -5,6 +5,8 @@ Time Complexity is the measure of the amount of work (or number of basic operati
 
 It tells us how the running time of an algorithm grows when the input size becomes larger.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 2. Simple Definition
 
 Time Complexity tells us how much work an algorithm has to do.
@@ -12,6 +14,8 @@ Time Complexity tells us how much work an algorithm has to do.
 It does not tell us the actual time in seconds.
 
 Instead, it tells us how the work increases when the amount of data increases.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why Do We Need Time Complexity?
 
@@ -48,6 +52,8 @@ But...
 Which one will perform better for 10 million elements?
 
 Time Complexity helps us answer this question.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Why Don't We Measure Time in Seconds?
 
@@ -91,6 +97,8 @@ Only the computer changed.
 
 Therefore, measuring seconds is not a reliable way to compare algorithms.
 
+------------------------------------------
+
 Another Example
 
 Imagine you ask two students to solve the same maths problem.
@@ -124,6 +132,8 @@ Compiler optimizations change.
 
 But the algorithm remains the same.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 5. What Does Time Complexity Actually Measure?
 
 Time Complexity measures the number of basic operations performed by an algorithm.
@@ -138,6 +148,8 @@ Increment (i++)
 Array access (arr[i])
 
 Instead of counting seconds, we count how many operations are performed as the input grows.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. What is Input Size (n)?
 
@@ -155,9 +167,13 @@ Number of elements = 5
 Therefore,
 
 n = 5
+
+------
 Example 2
 int[] numbers = new int[1000];
 n = 1000
+
+-----
 Example 3
 
 A company has
@@ -183,6 +199,8 @@ Examples:
 | Tree        | Number of nodes                                                                |
 | Graph       | Number of vertices (or sometimes vertices + edges, depending on the algorithm) |
 | Matrix      | Number of rows, columns, or both (depending on the algorithm)                  |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 7. Real-Life Example 1 – Finding Your Friend
 
@@ -242,6 +260,8 @@ Therefore, the amount of work increased.
 
 This is exactly what Time Complexity studies.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 8. Real-Life Example 2 – Dictionary
 
 Suppose you want to find the word:
@@ -267,6 +287,8 @@ Both methods work.
 One requires much less work.
 
 Time Complexity helps us compare these methods.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Technical Example
 
@@ -325,24 +347,23 @@ If the array had 1000 elements, the algorithm might perform 1000 comparisons in 
 
 As n grows, the amount of work grows.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
 10. Important Observation
 
 Suppose the input sizes are:
 
 n = 5
-
 Operations
-
 5
+
 n = 100
-
 Operations
-
 100
+
+
 n = 1000
-
 Operations
-
 1000
 
 Notice something:
@@ -352,6 +373,8 @@ As n increases,
 the number of operations also increases.
 
 This relationship between input size and work is what Time Complexity describes.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 11. Common Misconceptions
 ❌ Misconception 1
@@ -394,13 +417,16 @@ Q2. Why don't we measure algorithms in seconds?
 
 Answer:
 
-Because execution time depends on hardware, programming language, compiler optimizations, and system load. Time Complexity provides a machine-independent way to compare algorithms.
+Because execution time depends on hardware, programming language, compiler optimizations, and system load. 
+Time Complexity provides a machine-independent way to compare algorithms.
 
 Q3. What does n represent?
 
 Answer:
 
 n represents the size of the input. Depending on the problem, it could be the number of array elements, string characters, tree nodes, graph vertices, etc.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Summary
 
@@ -411,6 +437,8 @@ Does not measure seconds.
 Counts the amount of work (basic operations).
 Uses n to represent input size.
 Helps us compare algorithms fairly.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
 14. Revision Notes
 Input Size (n)
 
@@ -433,3 +461,6 @@ Operations Increase
         ↓
 
 This Growth = Time Complexity
+
+
+

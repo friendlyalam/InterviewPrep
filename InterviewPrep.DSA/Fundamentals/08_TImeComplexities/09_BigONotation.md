@@ -55,6 +55,8 @@ Book 3
 ↓
 
 Book n
+
+---
 Person B
 
 Uses the library catalogue.
@@ -100,30 +102,10 @@ The work grows roughly in proportion to the input size.
 
 Let's look at this table.
 
-Input (n)	Algorithm A	Algorithm B
-10	10 operations	100 operations
-100	100 operations	10,000 operations
-1,000	1,000 operations	1,000,000 operations
-
-Notice:
-
-Algorithm A grows slowly.
-
-Algorithm B grows very quickly.
-
-As n increases, the difference becomes huge.
-
-Big O describes this growth.
-
------------------------------------------------------------------------------------
-6. Understanding Growth
-
-Let's look at this table.
-
-Input (n)	Algorithm A	Algorithm B
-10	10 operations	100 operations
-100	100 operations	10,000 operations
-1,000	1,000 operations	1,000,000 operations
+Input (n)	        Algorithm A    	        Algorithm B
+10	                10 operations	        100 operations
+100	                100 operations	        10,000 operations
+1,000	            1,000 operations	    1,000,000 operations
 
 Notice:
 
@@ -309,7 +291,8 @@ What is Big O Notation?
 
 Answer:
 
-Big O Notation is a mathematical notation used to describe how the running time (or number of operations) of an algorithm grows as the input size increases. It focuses on the worst-case growth of the algorithm.
+Big O Notation is a mathematical notation used to describe how the running time (or number of operations)
+of an algorithm grows as the input size increases. It focuses on the worst-case growth of the algorithm.
 
 Interview Question
 

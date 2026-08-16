@@ -342,3 +342,8 @@ Algorithm Components
 • Conditions
 
 • Repetition (Loops)
+
+
+
+
+

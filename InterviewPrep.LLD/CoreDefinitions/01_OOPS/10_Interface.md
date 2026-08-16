@@ -328,6 +328,190 @@ Answer:
 Use an interface when unrelated classes need the same capability or when you want loose coupling.
 Use an abstract class when related classes share common state or implementation.
 
+Imagine your system has different payment methods:
+
+Payment Methods
+│
+├── UPI
+├── Credit Card
+└── Debit Card
+
+1. Interface — common capability
+
+Suppose the business requirement is:
+
+Every payment method must be able to process a payment.
+
+public interface IPaymentProcessor
+{
+    Task ProcessPaymentAsync(decimal amount);
+}
+
+Now:
+
+public class UpiPaymentProcessor : IPaymentProcessor
+{
+    public async Task ProcessPaymentAsync(decimal amount)
+    {
+        // UPI-specific implementation
+    }
+}
+public class CreditCardPaymentProcessor : IPaymentProcessor
+{
+    public async Task ProcessPaymentAsync(decimal amount)
+    {
+        // Credit-card-specific implementation
+    }
+}
+
+Why interface?
+
+Because UPI and Credit Card processors don't need to share a parent implementation.
+
+The interface simply says:
+
+"If you are a payment processor, you MUST be able to process a payment."
+
+And your business service can depend only on the abstraction:
+
+public class PaymentService
+{
+    private readonly IPaymentProcessor _processor;
+
+
+    public PaymentService(IPaymentProcessor processor)
+    {
+        _processor = processor;
+    }
+
+
+    public Task PayAsync(decimal amount)
+    {
+        return _processor.ProcessPaymentAsync(amount);
+    }
+}
+
+This is loose coupling.
+
+
+2. Abstract class — shared enterprise implementation
+
+Now suppose all your payment processors need the same common functionality:
+
+PaymentProcessor
+│
+├── ValidateAmount()
+├── LogTransaction()
+├── GenerateTransactionId()
+│
+├── UPI
+├── Credit Card
+└── Debit Card
+
+Then an abstract class can provide the shared implementation:
+
+public abstract class PaymentProcessor
+{
+    protected void ValidateAmount(decimal amount)
+    {
+        if (amount <= 0)
+            throw new ArgumentException("Invalid amount.");
+    }
+
+
+    protected void LogTransaction()
+    {
+        Console.WriteLine("Transaction logged.");
+    }
+
+
+    public abstract Task ProcessPaymentAsync(decimal amount);
+}
+
+Then:
+
+public class UpiPaymentProcessor : PaymentProcessor
+{
+    public override async Task ProcessPaymentAsync(decimal amount)
+    {
+        ValidateAmount(amount);
+
+
+        // UPI-specific logic
+
+
+        LogTransaction();
+    }
+}
+public class CreditCardPaymentProcessor : PaymentProcessor
+{
+    public override async Task ProcessPaymentAsync(decimal amount)
+    {
+        ValidateAmount(amount);
+
+
+        // Credit-card-specific logic
+
+
+        LogTransaction();
+    }
+}
+
+Now the children share actual implementation.
+
+That's when an abstract class becomes useful.
+
+The real difference
+Interface
+IPaymentProcessor
+       │
+       ├── UPI
+       ├── Credit Card
+       └── Debit Card
+
+Meaning:
+
+"These classes have the same capability/contract."
+
+Abstract class
+PaymentProcessor
+       │
+       ├── common validation
+       ├── common logging
+       ├── common state
+       │
+       ├── UPI
+       ├── Credit Card
+       └── Insurance
+
+Meaning:
+
+"These classes belong to the same conceptual family AND should reuse common code/state."
+
+⭐ Enterprise interview answer
+
+If Microsoft/interviewer asks:
+
+"When would you use an interface vs abstract class?"
+
+Say:
+
+I use an interface when I need to define a capability or contract and want loose coupling between consumers and implementations.
+I use an abstract class when closely related classes need to share common state or implementation while still allowing specialized behavior through abstract or virtual members.
+
+And don't think:
+
+Interface = unrelated classes always
+Abstract class = related classes always
+
+That's too simplistic.
+
+The real deciding factor is:
+
+Do I mainly need a contract/capability? → Interface
+
+Do I need shared state or reusable implementation? → Abstract class
+
 ----------------------------------------------------------------------------------------------------
 15. Interface vs Inheritance
 

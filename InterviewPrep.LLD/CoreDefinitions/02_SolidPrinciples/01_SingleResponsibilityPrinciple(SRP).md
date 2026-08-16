@@ -387,3 +387,4 @@ In enterprise applications, the answer is often an application service, workflow
 or an event-driven mechanism. For example, OrderService saves the order, then publishes an OrderPlaced event. 
 Separate handlers such as EmailService, InventoryService, and AnalyticsService react to that event.
 This keeps each service focused while still allowing the overall business process to work together.
+

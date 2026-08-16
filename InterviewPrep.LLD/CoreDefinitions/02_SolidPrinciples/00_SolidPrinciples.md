@@ -282,9 +282,11 @@ Python
 Go
 Kotlin
 TypeScript
+
 Q4. Does every project require strict SOLID?
 
 Not necessarily.
 
 For very small scripts or prototypes, applying every principle can add unnecessary complexity. However,
 for medium and large enterprise applications, SOLID provides long-term maintainability.
+

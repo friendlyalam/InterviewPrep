@@ -24,6 +24,7 @@ How often do we insert?
 How much memory can we use?
 
 That's how engineers think.
+
 ===================================================================================================================
 3. Master One Concept Before the Next
 
@@ -36,6 +37,7 @@ We'll say:
 "I truly understand Arrays."
 
 There's a big difference.
+
 ===============================================================================================================
 4. Your Only Job
 
@@ -46,6 +48,7 @@ Complete the homework.
 Ask questions whenever you're unsure.
 Revise on Sundays.
 Stay consistent.
+
 ==========================================================================================================
 5. Coding Rule
 
@@ -60,6 +63,7 @@ Dry run it.
 Discuss complexity.
 
 This is exactly how many interviewers expect candidates to approach problems.
+
 ==========================================================================================================
 
 6. Don't Compare Yourself
@@ -71,6 +75,7 @@ Others solve 150 but understand them deeply.
 I'd rather you be in the second group.
 
 Interviewers notice depth of understanding.
+
 ==========================================================================================================
 
 

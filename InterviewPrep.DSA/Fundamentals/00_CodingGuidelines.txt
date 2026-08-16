@@ -186,7 +186,6 @@ Never swallow exceptions.
 Log important events.
 
 Log
-
 Errors
 Warnings
 External API calls
@@ -208,7 +207,7 @@ Validate input immediately.
 if(order == null)
     throw new ArgumentNullException(nameof(order));
 
-    -----------------------------------------
+-----------------------------------------
 
 9. Async Programming
 

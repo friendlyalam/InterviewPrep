@@ -5,6 +5,8 @@ An algorithm has O(1) (Constant Time Complexity) if the number of operations doe
 Whether the input contains 10 elements, 1,000 elements, or 1 billion elements, the algorithm performs approximately the same amount of work.
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 2. Simple Definition
 
 O(1) means the algorithm always performs a fixed number of operations.
@@ -12,6 +14,8 @@ O(1) means the algorithm always performs a fixed number of operations.
 It does not matter whether the input is small or large.
 
 The work remains almost the same.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 3. Why Do We Need O(1)?
@@ -33,6 +37,8 @@ You don't check every book.
 The work remains the same.
 
 This is the idea behind O(1).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 4. Why is it Called "Constant Time"?
@@ -269,22 +275,19 @@ Suppose the input size changes.
 n = 10
 
 Operations
-
 1
+
+
 n = 100
-
 Operations
-
 1
+
 n = 1,000
-
 Operations
-
 1
+
 n = 1,000,000
-
 Operations
-
 1
 
 Notice:
@@ -324,15 +327,7 @@ The computer calculates the memory address directly using a formula.
 
 Simplified idea:
 
-Address of Element
-
-=
-
-Base Address
-
-+
-
-(Index × Size of One Element)
+Address of Element = Base Address +(Index × Size of One Element)
 
 Example (illustrative numbers):
 
@@ -475,3 +470,6 @@ Constant Work
 ↓
 
 O(1)
+
+
+
