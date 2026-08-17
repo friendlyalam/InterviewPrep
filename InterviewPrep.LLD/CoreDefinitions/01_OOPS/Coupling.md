@@ -1,12 +1,14 @@
 ﻿1. Product Company Definition
 
-Coupling is the degree of dependency between two classes, modules, or components. It measures how much one piece of code knows about or relies on another piece of code.
+Coupling is the degree of dependency between two classes, modules, or components. 
+It measures how much one piece of code knows about or relies on another piece of code.
 
 Interview Definition
 
-Coupling describes how strongly two software components are connected. Lower coupling is generally preferred because changes in one component have less impact on others.
+Coupling describes how strongly two software components are connected. 
+Lower coupling is generally preferred because changes in one component have less impact on others.
 
----------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Simple Definition
 
@@ -24,7 +26,7 @@ You can replace the bulb without changing the wiring.
 
 That socket is exactly what an interface does in software.
 
----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 High Coupling
 
 A custom-built machine where every part is welded together.
@@ -45,7 +47,7 @@ You can replace the USB device without changing the laptop.
 
 That is the goal of good software design.
 
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Why Is Coupling Important?
 
@@ -67,7 +69,7 @@ Publish analytics event
 
 If OrderService directly creates every dependency, it becomes tightly coupled.
 
--------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 5. High Coupling (Bad Design)
 C# Example
@@ -98,7 +100,7 @@ public class OrderService
     }
 }
 
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Why Is This Tightly Coupled?
 
@@ -122,7 +124,7 @@ You must modify OrderService.
 
 That is tight coupling.
 
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Problems with Tight Coupling
 
@@ -192,7 +194,7 @@ Output
 Order placed
 Email sent to alam@example.com
 
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 What Changed?
 
@@ -214,7 +216,7 @@ Now OrderService depends on an abstraction, not a concrete class.
 
 This is low coupling.
 
------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Memory Representation
 
@@ -232,7 +234,7 @@ OrderService only knows IEmailService.
 
 The actual object may be EmailService, SendGridEmailService, AwsSesEmailService, etc.
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Where Product Companies Care Most
 Unit Testing
@@ -250,7 +252,7 @@ OrderService service = new OrderService(fake);
 
 Now you can test OrderService without sending real emails.
 
-----------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 How ASP.NET Core Reduces Coupling
 
 You write:
@@ -270,7 +272,7 @@ The framework provides the implementation.
 
 Your class remains loosely coupled.
 
-------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Common Interview Questions
 Q1. What is coupling?
 
@@ -304,7 +306,7 @@ Q5. Why do interfaces reduce coupling?
 
 Because the consumer depends on a contract rather than a specific implementation.
 
------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Best Practices
 
@@ -320,7 +322,7 @@ Avoid creating dependencies with new inside business logic.
 
 Prefer composition over inheritance when sharing functionality.
 
-----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 | Feature                    | Tight Coupling                              | Loose Coupling                                 |
 | -------------------------- | ------------------------------------------- | ---------------------------------------------- |
@@ -336,7 +338,7 @@ Prefer composition over inheritance when sharing functionality.
 | Product Company Preference | ❌ Avoid when possible                       | ✅ Preferred                                    |
 
 
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Real life examples
 
 | Scenario        | Tight Coupling                                           | Loose Coupling                                             |
@@ -364,7 +366,7 @@ Software examples
 | `InvoiceService` directly creates `SqlRepository`.          | `InvoiceService` depends on `IInvoiceRepository`.       |
 
 
------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Product Company Examples
 
@@ -376,7 +378,7 @@ Product Company Examples
 | Uber          | Multiple map providers hidden behind a common abstraction                                    |
 | Swiggy/Zomato | Different payment providers (Razorpay, Stripe, Paytm) implementing the same payment contract |
 
---------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Product Company Summary
 | Tight Coupling                   | Loose Coupling                       |
 | -------------------------------- | ------------------------------------ |

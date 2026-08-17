@@ -15,7 +15,7 @@ It is a solution template that helps developers solve recurring design problems.
 Design patterns are defined as reusable solutions to the common problems that arise during software design and development. 
 They are general templates or best practices that guide developers in creating well-structured, maintainable, and efficient code.
 
---------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 Simple Definition
 
 Imagine you are building houses.
@@ -28,7 +28,7 @@ That reusable solution is a pattern.
 
 Software design patterns work the same way.
 
-------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 Why were Design Patterns introduced?
 
 Early software projects often had problems like:
@@ -46,7 +46,7 @@ Instead of solving them from scratch every time, they documented proven solution
 
 Those solutions became Design Patterns.
 
-------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Real-Life Example
 
@@ -106,9 +106,13 @@ Patterns:
 | Pattern          | Purpose                                      |
 | ---------------- | -------------------------------------------- |
 | Singleton        | Only one object should exist                 |
+
 | Factory Method   | Let subclasses decide which object to create |
+
 | Abstract Factory | Create related families of objects           |
+
 | Builder          | Build complex objects step by step           |
+
 | Prototype        | Clone existing objects                       |
 
 
@@ -135,11 +139,17 @@ Patterns:
 | Pattern   | Purpose                                           |
 | --------- | ------------------------------------------------- |
 | Adapter   | Make incompatible interfaces work together        |
+
 | Bridge    | Separate abstraction from implementation          |
+
 | Composite | Tree structures (folders, menus)                  |
+
 | Decorator | Add behavior without modifying code               |
+
 | Facade    | Provide a simple interface to a complex subsystem |
+
 | Flyweight | Share objects to reduce memory usage              |
+
 | Proxy     | Control access to another object                  |
 
 
@@ -166,15 +176,25 @@ Patterns:
 | Pattern                 | Purpose                                  |
 | ----------------------- | ---------------------------------------- |
 | Strategy                | Choose algorithms at runtime             |
+
 | Observer                | Publish/Subscribe notifications          |
+
 | Command                 | Encapsulate requests as objects          |
+
 | State                   | Change behavior based on state           |
+
 | Chain of Responsibility | Pass requests through handlers           |
+
 | Mediator                | Centralize communication                 |
+
 | Memento                 | Save and restore state                   |
+
 | Template Method         | Define algorithm skeleton                |
+
 | Visitor                 | Add operations without modifying classes |
+
 | Iterator                | Traverse collections                     |
+
 | Interpreter             | Interpret expressions                    |
 
 ----------------------------------

@@ -12,7 +12,7 @@ In simple words:
 
 Don't edit tested code every time a new requirement comes. Instead, extend the application by adding new classes.
 
-------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 3. What does "Open for Extension, Closed for Modification" mean?
 
@@ -34,7 +34,7 @@ Instead of editing existing code, we should add a new implementation.
 
 Think of it as plugging in a new module instead of rewriting an old one.
 
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Why Was OCP Introduced?
 
@@ -79,7 +79,7 @@ Deployment risk increases.
 
 OCP solves this by allowing new payment providers to be added without changing the existing payment service.
 
-----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 5. Real-Life Example
 
 Mobile Charger
@@ -98,7 +98,7 @@ You extend the available charging options by plugging in a different compatible 
 
 The phone is closed for modification but open for extension through its charging interface.
 
-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Enterprise Example
 
@@ -166,7 +166,7 @@ AmazonPayGateway
 
 No existing classes change.
 
----------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 7. Characteristics
 Existing code remains stable.
@@ -176,20 +176,24 @@ Encourages polymorphism.
 Reduces regression risk.
 Supports scalability.
 
---------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Advantages
 
 | Advantage              | Explanation                                                       |
 | ---------------------- | ----------------------------------------------------------------- |
 | Easy to extend         | Add new behavior without editing existing classes.                |
+
 | Safer deployments      | Less risk of breaking working code.                               |
+
 | Better maintainability | Changes are isolated to new implementations.                      |
+
 | Better testing         | Existing functionality does not require retesting as extensively. |
+
 | Cleaner architecture   | Uses abstractions and polymorphism effectively.                   |
 
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Disadvantages
 
@@ -214,19 +218,22 @@ Can become over-engineered if applied to code that is unlikely to change.
 
 ❌ Depending directly on concrete implementations instead of abstractions.
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 11. Relationship with OOP
 
 | OOP Concept          | Relation to OCP                                                 |
 | -------------------- | --------------------------------------------------------------- |
 | Abstraction          | Defines extension points.                                       |
+
 | Interface            | Exposes a stable contract.                                      |
+
 | Polymorphism         | Allows different implementations to be used interchangeably.    |
+
 | Dependency Injection | Supplies the desired implementation without changing consumers. |
 
 
--------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 12. Product Company Example
 
@@ -249,22 +256,26 @@ RazorpayGateway
 
 Everything else continues working.
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Interview Questions
+
+
 Q1. What is the Open/Closed Principle?
 
 Software entities should be open for extension but closed for modification.
 
 Q2. Why is OCP important?
 
-Because modifying production code repeatedly increases the chance of introducing defects. OCP encourages extending behavior instead of changing tested code.
+Because modifying production code repeatedly increases the chance of introducing defects. 
+OCP encourages extending behavior instead of changing tested code.
 
 Q3. Which OOP concepts help implement OCP?
 Interfaces
 Abstraction
 Polymorphism
 Dependency Injection (commonly used alongside OCP)
+
 Q4. Does OCP eliminate all modifications?
 
 No.
@@ -292,3 +303,5 @@ A stronger answer is:
 The Open/Closed Principle encourages designing systems around abstractions so that new behavior can be introduced through new implementations
 rather than by modifying existing, tested business logic.
 This minimizes regression risk and improves maintainability as the application evolves.
+
+

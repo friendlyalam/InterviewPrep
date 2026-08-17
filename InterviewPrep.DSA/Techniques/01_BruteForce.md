@@ -275,6 +275,8 @@ Answer:
 
 Usually, explain the Brute Force approach first, then improve it. This demonstrates your problem-solving process.
 
+-----------------------------------------------------------------------------------------------------------------------------
+
 16. Summary
 Problem
 
@@ -337,3 +339,6 @@ Technique Cheat Sheet (Updated)
 | Technique   | Definition                                       | Works With                                    |                Common Complexity |
 | ----------- | ------------------------------------------------ | --------------------------------------------- | -------------------------------: |
 | Brute Force | Try the simplest or all possible solutions first | Array, String, Linked List, Tree, Graph, etc. | Varies (O(n), O(n²), O(2ⁿ), ...) |
+
+
+

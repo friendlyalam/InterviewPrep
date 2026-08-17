@@ -11,7 +11,7 @@ The client asks for an object without knowing which concrete class is being crea
 
 This is the heart of Factory Method.
 
-------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Simple Definition
 
@@ -34,7 +34,7 @@ The coffee machine creates it.
 
 The coffee machine acts like a Factory.
 
--------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why was Factory Method Introduced?
 
@@ -122,7 +122,7 @@ CheckoutService
 
 Very common problem in legacy systems.
 
--------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 5. Real-Life Example 1
 Restaurant
@@ -142,6 +142,8 @@ Customer never cooks.
 Kitchen creates.
 
 Kitchen = Factory.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Real-Life Example 2
 Car Showroom
@@ -195,7 +197,7 @@ Business logic should not change.
 
 Only Factory should know how to create the correct payment processor.
 
-----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Why Payment Gateway?
 
@@ -213,7 +215,7 @@ Microsoft Store
 
 Factory Method fits this scenario perfectly.
 
------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Characteristics
 Encapsulates object creation.
@@ -223,7 +225,7 @@ Easy to extend.
 Supports OCP.
 Reduces coupling.
 
----------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 10. Advantages
 
 | Advantage              | Explanation                                       |
@@ -235,7 +237,7 @@ Reduces coupling.
 | Follows OCP            | Existing code remains unchanged.                  |
 
 
----------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 11. Disadvantages
 
@@ -246,7 +248,7 @@ Reduces coupling.
 | Overkill for Small Projects | Not needed when only one implementation exists. |
 
 
-----------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 12. When to Use
 
@@ -266,7 +268,7 @@ Storage Provider
 Authentication Provider
 Report Generator
 
----------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 13. When NOT to Use
 
 Don't use Factory Method when
@@ -291,7 +293,7 @@ new Customer()
 
 is perfectly fine.
 
-------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 14. Bad Design
 Checkout Service
@@ -336,6 +338,8 @@ Checkout changes.
 
 Bad architecture.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 15. Good Design
 Checkout Service
 
@@ -359,7 +363,7 @@ Net Banking
 
 Checkout only talks to the factory and the interface.
 
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 16. Characteristics Compared to Singleton
 
@@ -370,7 +374,7 @@ Checkout only talks to the factory and the interface.
 | Focuses on object lifetime                | Focuses on object creation           |
 | One object                                | Many possible objects                |
 
------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 17. Product Company Interview Questions
 Q1
@@ -387,6 +391,8 @@ Which SOLID principle does Factory Method support?
 
 Open/Closed Principle (OCP)
 Dependency Inversion Principle (DIP)
+
+
 Q3
 
 What problem does it solve?
@@ -417,6 +423,8 @@ Yes.
 
 Business logic depends on abstractions instead of concrete classes.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 18. Product Company Discussion
 
 One of the biggest misconceptions is:
@@ -437,3 +445,6 @@ Clean business logic
 Easier maintenance
 Better extensibility
 Consistent object creation
+
+
+

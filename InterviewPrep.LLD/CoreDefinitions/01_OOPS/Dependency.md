@@ -219,3 +219,4 @@ public class OrderService
 
 This still represents a dependency, but now the class depends on an abstraction rather than a concrete implementation.
 That design is the foundation of Dependency Injection (DI) and the Dependency Inversion Principle (DIP), both of which are heavily used in product-company codebases.
+

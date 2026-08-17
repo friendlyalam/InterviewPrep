@@ -346,24 +346,21 @@ O(n)
 Suppose
 
 n = 10
-
 Operations
-
 10
+
+
 n = 100
-
 Operations
-
 100
+
+
 n = 1000
-
 Operations
-
 1000
+
 n = 1000000
-
 Operations
-
 1000000
 
 Notice:
@@ -537,3 +534,4 @@ Work grows proportionally
 ↓
 
 O(n)
+

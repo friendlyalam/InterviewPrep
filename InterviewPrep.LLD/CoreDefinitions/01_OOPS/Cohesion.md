@@ -15,7 +15,7 @@ Think of cohesion as answering this question:
 One job → High Cohesion ✅
 Many unrelated jobs → Low Cohesion ❌
 
-----------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 3. Why Is Cohesion Important?
 
 Imagine an e-commerce application.
@@ -37,7 +37,7 @@ This class is doing everything.
 
 That is Low Cohesion.
 
-----------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A better design is:
 
@@ -84,7 +84,7 @@ Efficient?
 
 No.
 
-------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 High Cohesion
 
@@ -102,7 +102,7 @@ Only cooks.
 
 Each has one responsibility.
 
------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 5. Bad Design (Low Cohesion)
 public class EmployeeService
@@ -127,7 +127,7 @@ Difficult to maintain
 Difficult to test
 Violates the Single Responsibility Principle (SRP)
 
-----------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Good Design (High Cohesion)
 EmployeeService
@@ -140,21 +140,21 @@ public class EmployeeService
     public void UpdateEmployee() { }
 }
 
----------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 EmailService
 public class EmailService
 {
     public void SendEmail() { }
 }
 
---------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 InvoiceService
 public class InvoiceService
 {
     public void GenerateInvoice() { }
 }
 
----------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 ExcelExportService
 public class ExcelExportService
 {
@@ -163,7 +163,7 @@ public class ExcelExportService
 
 Now every class has a single responsibility.
 
-----------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 7. Enterprise Example
 
 Imagine Amazon Order Processing.
@@ -189,7 +189,7 @@ OrderService
 
 Each service focuses on one business capability.
 
-------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Characteristics
 High Cohesion
@@ -200,7 +200,7 @@ Easy to maintain
 High reusability
 Small focused classes
 
-----------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Low Cohesion
 Multiple unrelated responsibilities
 Difficult maintenance
@@ -208,7 +208,7 @@ Difficult debugging
 Large "God Classes"
 High chance of bugs
 
-------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 | High Cohesion        | Low Cohesion            |
 | -------------------- | ----------------------- |
@@ -220,7 +220,7 @@ High chance of bugs
 | Easier to understand | Difficult to understand |
 | Preferred            | Avoid                   |
 
-----------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 10. Real-Life Examples
 
 | High Cohesion                             | Low Cohesion                                     |
@@ -232,7 +232,7 @@ High chance of bugs
 | Bank ATM only performs banking operations | ATM also books movie tickets and edits photos    |
 
 
----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 11. Product Company Examples
 Good Design:
 UserService
@@ -241,14 +241,14 @@ UserService
 
 User Operations
 
----------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 PaymentService
 
 ↓
 
 Payment Operations
 
-----------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 NotificationService
 
 ↓
@@ -257,7 +257,7 @@ Notifications
 
 Each service has one clear responsibility.
 
------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Bad Design
 ApplicationService
@@ -292,7 +292,7 @@ Authentication
 
 This is often called a God Object or God Class.
 
------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 | Cohesion                          | Coupling                         |
 | --------------------------------- | -------------------------------- |
 | Relationship **inside one class** | Relationship **between classes** |
@@ -301,7 +301,7 @@ This is often called a God Object or God Class.
 | One responsibility                | Minimal dependency               |
 | Concerned with class design       | Concerned with collaboration     |
 
------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Common Interview Questions
 Q1. What is Cohesion?
@@ -320,7 +320,8 @@ Q4. Can a project have high cohesion and high coupling?
 
 Yes, but it is not ideal.
 
-For example, each class may have one responsibility (high cohesion), but if every class directly depends on many concrete classes, the system still has high coupling.
+For example, each class may have one responsibility (high cohesion),
+but if every class directly depends on many concrete classes, the system still has high coupling.
 
 The goal is:
 
@@ -330,7 +331,7 @@ Q5. Which SOLID principle is related to cohesion?
 
 Single Responsibility Principle (SRP) is the principle that most directly promotes high cohesion.
 
---------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 14. Best Practices
 One class → One responsibility.
@@ -339,7 +340,7 @@ Keep methods related to the same business purpose.
 Move unrelated functionality into separate classes.
 Design classes that are easy to understand and test.
 
-----------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 Product Company Summary
 | Aspect                     | High Cohesion | Low Cohesion |
 | -------------------------- | ------------- | ------------ |
@@ -350,7 +351,7 @@ Product Company Summary
 | Reusability                | High          | Low          |
 | Product Company Preference | ✅ Yes         | ❌ No         |
 
-----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Interview Summary
 Good Design

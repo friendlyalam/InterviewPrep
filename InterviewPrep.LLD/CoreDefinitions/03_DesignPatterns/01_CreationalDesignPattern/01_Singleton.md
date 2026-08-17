@@ -17,7 +17,7 @@ Everyone should access the same object.
 
 Both conditions must be true.
 
-------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 2. Simple Definition
 
 Suppose an office has only one CEO.
@@ -34,7 +34,7 @@ There is always one CEO.
 
 Singleton works exactly like this.
 
--------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why was Singleton Introduced?
 
@@ -74,7 +74,7 @@ Creating multiple objects would waste memory and may cause inconsistent behavior
 
 Singleton solves this problem.
 
-------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Problem Without Singleton
 
@@ -118,7 +118,7 @@ This creates inconsistent application behavior.
 
 Singleton prevents this by ensuring everyone uses the same configuration object.
 
-----------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 5. Real-Life Example 1
 CEO of a Company
@@ -136,7 +136,7 @@ There is only one CEO.
 
 Everyone talks to the same person.
 
---------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Real-Life Example 2
 Control Tower at an Airport
@@ -156,7 +156,7 @@ If each aircraft had its own control tower, flight coordination would fail.
 
 This is a natural Singleton scenario.
 
-----------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 7. Enterprise Example
 Configuration Management System
@@ -185,21 +185,26 @@ All services should share the same configuration instance.
 
 This is one of the most common Singleton use cases.
 
----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Where Product Companies Use Singleton
 
 | System         | Singleton Object      |
 | -------------- | --------------------- |
 | Banking        | Configuration Manager |
+
 | E-commerce     | Cache Manager         |
+
 | ERP            | License Manager       |
+
 | Hospital       | Application Settings  |
+
 | Cloud Platform | Feature Flag Manager  |
+
 | Gaming         | Game Settings Manager |
 
 
---------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Characteristics
 Only one object exists.
@@ -209,7 +214,7 @@ Constructor is hidden from outside code.
 Instance creation is controlled internally.
 Suitable for shared resources.
 
--------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 10. Advantages
 
@@ -222,7 +227,7 @@ Suitable for shared resources.
 | Better Resource Management | Useful for configuration, logging, caching, etc. |
 
 
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 11. Disadvantages
 
@@ -235,7 +240,7 @@ Suitable for shared resources.
 
 Singleton is useful, but it should be applied only when a single shared instance is truly required.
 
---------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 12. When to Use
 
@@ -253,7 +258,7 @@ Logger
 Cache Manager
 Feature Toggle Manager
 
---------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 13. When NOT to Use
 
@@ -270,7 +275,7 @@ Shopping Order
 
 These represent business entities where multiple instances are expected.
 
-------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 14. Bad Design
 Program
@@ -292,7 +297,7 @@ Memory waste
 Different configuration values
 Inconsistent behavior
 
-----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 15. Good Design
                  ConfigurationManager
@@ -304,7 +309,7 @@ Inconsistent behavior
 
 All services share the same instance.
 
------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 16. Common Misconceptions
 ❌ Singleton means one object per class forever.
@@ -334,7 +339,7 @@ Methods
 Validation
 Business logic
 
------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 17. Interview Questions
 Basic
@@ -375,7 +380,7 @@ Yes.
 
 Overusing it can introduce global state, hidden dependencies, and testing difficulties.
 
---------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 18. Product Company Discussion
 
@@ -393,7 +398,7 @@ Thread safety is considered.
 Initialization strategy (eager or lazy) is appropriate.
 The implementation fits the application's lifecycle.
 
---------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 19. ASP.NET Core Usage
 
@@ -423,7 +428,7 @@ Comparison
 | Older/traditional approach               | Modern ASP.NET Core approach                |
 
 
-----------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 1. Classic Singleton Pattern
 
 The class creates and manages its own instance.
@@ -493,7 +498,7 @@ No private constructor
 
 The DI container creates exactly one object and shares it.
 
------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 Product Company Interview Answer
 
 Question: Are Singleton Pattern and AddSingleton() the same?
@@ -504,4 +509,6 @@ No. The classic Singleton Pattern is a GoF design pattern where the class itself
 using a private constructor and a static instance. AddSingleton() is an ASP.NET Core dependency injection lifetime where 
 the DI container ensures only one shared instance is created. Both provide a single shared object, 
 but the responsibility for creating and managing that object is different.
+
+
 

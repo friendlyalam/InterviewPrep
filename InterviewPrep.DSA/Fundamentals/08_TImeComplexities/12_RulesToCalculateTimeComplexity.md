@@ -71,6 +71,8 @@ n times
 Complexity
 
 O(n)
+
+
 Example 2
 for(int i = 0; i < n; i++)
 {
@@ -97,6 +99,8 @@ O(2n)
 ↓
 
 O(n)
+
+
 Example 3
 for(int i = 0; i < n; i++)
 {
@@ -196,12 +200,16 @@ O(n + 5)
 ↓
 
 O(n)
+
+
 Another Example
 n + 100
 
 Big O
 
 O(n)
+
+
 Another Example
 2n + 10
 
@@ -544,3 +552,4 @@ O(2n)
 ↓
 
 O(n)
+

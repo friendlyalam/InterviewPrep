@@ -41,8 +41,10 @@ Instead of hardcoding the implementation namespace inside every consumer like:
 
 ConfigurationManager.Instance
 
-I recommend introducing a facade/access point later in this project for learning purposes. That way, when we switch from Eager to Lazy, we'll only update one place instead of changing all consumer classes.
+I recommend introducing a facade/access point later in this project for learning purposes. 
+That way, when we switch from Eager to Lazy, we'll only update one place instead of changing all consumer classes.
 
 This mirrors how enterprise applications minimize the impact of implementation changes.
 
-We'll introduce that improvement after you've understood the basic Singleton implementations so that the design evolves naturally rather than hiding important concepts too early.
+We'll introduce that improvement after you've understood the basic Singleton implementations so 
+that the design evolves naturally rather than hiding important concepts too early.

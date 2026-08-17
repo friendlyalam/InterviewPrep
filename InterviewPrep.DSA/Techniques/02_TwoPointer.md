@@ -1,10 +1,11 @@
 ﻿1. Definition
 
-Two Pointers is a technique in which two variables (pointers or indices) move through a data structure (usually an array or string) to solve a problem more efficiently.
+Two Pointers is a technique in which two variables (pointers or indices) move through a 
+data structure (usually an array or string) to solve a problem more efficiently.
 
 Instead of using nested loops, we use two pointers to reduce the time complexity.
 
---------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 2. Why Do We Need Two Pointers?
 
@@ -20,7 +21,7 @@ A beginner might use two nested loops (O(n²)).
 
 With Two Pointers, many of these problems become O(n).
 
-------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Simple Definition
 
@@ -32,7 +33,7 @@ Move towards each other.
 Move in the same direction.
 Move at different speeds.
 
--------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 4. Real-Life Examples
 Example 1 – Finding Two Friends
 
@@ -122,7 +123,7 @@ Two Sum II (Sorted Array)
 Container With Most Water
 Trapping Rain Water
 
--------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 Type 2 – Same Direction
 
 Both pointers move left to right.
@@ -149,7 +150,7 @@ Move Zeroes
 Partition Array
 Remove Element
 
-----------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 Type 3 – Fast & Slow Pointer
 
 Different speeds.
@@ -194,7 +195,7 @@ for (int fast = 0; fast < array.Length; fast++)
     // Process
 }
 
------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 8. Which Data Structures Support Two Pointers?
 
 | Data Structure | Can Use? |
@@ -211,7 +212,7 @@ Queue ❌
 Tree ❌
 Graph ❌
 
----------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 9. Recognition Clues
 
 When you read a problem and see words like:
@@ -229,7 +230,7 @@ Think:
 
 Opposite Direction Two Pointers
 
----------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 Same Direction
 Remove duplicates
@@ -242,34 +243,30 @@ Think:
 
 Same Direction Two Pointers
 
---------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 10. When Should We NOT Use Two Pointers?
 
 Avoid Two Pointers when:
 
 The problem requires frequency counting.
-
 Use:
-
 HashMap
+
 The problem is about hierarchy.
-
 Use:
-
 Tree
+
+
 The problem is about networks.
-
 Use:
-
 Graph
+
 The problem asks for repeated range sums.
-
 Use:
-
 Prefix Sum
 
-----------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 11. Time Complexity
 
 Most Two Pointer solutions:
@@ -278,7 +275,7 @@ O(n)
 
 Each pointer moves through the data at most once.
 
--------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 12. Space Complexity
 
@@ -288,7 +285,7 @@ O(1)
 
 Only a few variables are used.
 
----------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Advantages
 
@@ -300,6 +297,8 @@ Only a few variables are used.
 
 ✅ Uses constant extra memory.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 14. Disadvantages
 
 ❌ Doesn't work for every problem.
@@ -308,7 +307,7 @@ Only a few variables are used.
 
 ❌ Some problems require sorted data before applying Two Pointers.
 
-----------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 15. Frequently Asked Interview Questions
 Q1. Is Two Pointers an algorithm?
 
@@ -342,7 +341,7 @@ Yes.
 
 Strings are sequences of characters, so we can move pointers over their indices just like arrays.
 
-------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 16. Common Mistakes
 
@@ -354,7 +353,7 @@ Strings are sequences of characters, so we can move pointers over their indices 
 
 ❌ Confusing Same Direction with Fast & Slow Pointers.
 
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 17. Summary
 Need two positions?
@@ -385,7 +384,7 @@ Choose the pattern
        Cycle Detection
        Middle Node
 
- -------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------------------------------
 Technique Cheat Sheet (Updated)
 
 | Technique    | Recognition Words                                                 | Common Data Structures     | Typical Complexity |

@@ -20,7 +20,7 @@ Look at every element one by one.
 
 That is Linear Scan.
 
------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Simple Definition
 
@@ -28,7 +28,8 @@ Linear Scan means
 
 Visit every element one by one until the work is completed.
 
------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
 4. Real-Life Example
 Teacher Checking Attendance
 
@@ -98,7 +99,7 @@ Linear Scan
 
 Every element is visited once.
 
--------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Visualization
 Index
@@ -115,7 +116,7 @@ Move one step at a time
 
 0 → 1 → 2 → 3 → 4
 
----------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 7. Generic C# Template
 for (int i = 0; i < array.Length; i++)
@@ -146,7 +147,7 @@ Almost every sequential data structure.
 
 Trees and Graphs use traversal methods like DFS/BFS instead of a simple linear scan.
 
------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Recognition Clues
 
@@ -167,7 +168,8 @@ Traverse
 Your first thought should be:
 
 Linear Scan
------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------
 
 10. When Should We NOT Use Linear Scan?
 
@@ -183,7 +185,7 @@ Use Binary Search
 
 O(log n)
 
------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 The problem asks repeated lookups.
 
 Instead of scanning again and again,
@@ -195,7 +197,8 @@ HashMap
 or
 
 HashSet
-----------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------
 
 The problem asks Top K.
 
@@ -205,6 +208,8 @@ Heap
 
 instead.
 
+------------------------------------------------------------------------------------------------------------------------------------------
+
 11. Time Complexity
 
 One traversal
@@ -213,8 +218,7 @@ O(n)
 
 Because every element is visited once.
 
------------------------------------------------
-
+------------------------------------------------------------------------------------------------------------------------------------------
 12. Space Complexity
 O(1)
 
@@ -257,9 +261,11 @@ HashMap
 
 ❌ Not suitable for sorted search problems.
 
--------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 15. Frequently Asked Interview Questions
+
+
 Q1. Is Linear Scan an algorithm?
 
 Answer
@@ -297,7 +303,7 @@ Answer
 Usually yes, but if you stop early (for example, finding an element at index 0), the actual execution is shorter. 
 However, in Big O we consider the worst case, which is still O(n).
 
----------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 16. Common Mistakes
 
@@ -309,7 +315,7 @@ However, in Big O we consider the worst case, which is still O(n).
 
 ❌ Using Linear Scan repeatedly when a HashMap would be more efficient.
 
-----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 17. Summary
 Need to process every element?
@@ -335,10 +341,16 @@ Move to next
 ↓
 
 Finish
+
 ----------------------------------------------------------
 Technique Cheat Sheet (Updated)
 
 | Technique   | Purpose                 | Common Data Structures           | Typical Complexity |
 | ----------- | ----------------------- | -------------------------------- | -----------------: |
 | Brute Force | Solve correctly first   | All                              |             Varies |
+
 | Linear Scan | Visit each element once | Array, String, List, Linked List |               O(n) |
+
+
+
+

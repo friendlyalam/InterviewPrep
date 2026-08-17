@@ -1,4 +1,5 @@
 ﻿using InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Models;
+using System.Numerics;
 
 namespace InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._02_LazySingleton
 {
@@ -40,3 +41,49 @@ namespace InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Single
         }
     }
 }
+
+//The whole class in one sentence
+
+//ConfigurationManager uses a private constructor to prevent external object creation,
+//a static _instance field to store the single object, and a public static Instance property
+//to lazily create and return that same object whenever the application needs configuration.
+
+//And the four pieces you should immediately recognize in any Singleton implementation are:
+
+//private constructor
+//        +
+//static instance
+//        +
+//public static Instance
+//        +
+//controlled creation
+//        =
+//Singleton
+
+
+
+//Complete flow
+
+//The entire class can be understood like this:
+
+//                ConfigurationManager
+//                         │
+//                         │
+//                  Instance property
+//                         │
+//                Is _instance null?
+//                    /          \
+//                  Yes           No
+//                   │             │
+//                   ▼             ▼
+//             Create object    Return existing
+//                   │             │
+//                   ▼             │
+//          private constructor     │
+//                   │              │
+//                   ▼              │
+//       Load ApplicationConfiguration
+//                   │              │
+//                   └──────┬───────┘
+//                          ▼
+//                   return instance
