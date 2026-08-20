@@ -123,6 +123,8 @@ A [B C D] E F
 ↓
 
 A B [C D E] F
+
+
 Type 2 – Variable Size Window
 
 Window grows and shrinks based on a condition.

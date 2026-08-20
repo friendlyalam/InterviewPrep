@@ -6,11 +6,11 @@ namespace InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Model
     {
         public Guid FileId { get; set; }
 
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
-        public string StorageProvider { get; set; }
+        public string StorageProvider { get; set; } = string.Empty;
 
-        public string FileUrl { get; set; }
+        public string FileUrl { get; set; } = string.Empty;
 
         public DateTime UploadedOn { get; set; }
     }

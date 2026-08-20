@@ -1,4 +1,5 @@
-﻿Prefix Sum is a technique where we precompute the cumulative sum of elements from the beginning of an array so that range sum queries can be answered quickly.
+﻿Prefix Sum is a technique where we precompute the cumulative sum of elements from the beginning
+of an array so that range sum queries can be answered quickly.
 
 Instead of calculating the same sums repeatedly, we store them once and reuse them.
 
@@ -6,7 +7,8 @@ Instead of calculating the same sums repeatedly, we store them once and reuse th
 
 1. Definition
 
-Prefix Sum is a technique where we precompute the cumulative sum of elements from the beginning of an array so that range sum queries can be answered quickly.
+Prefix Sum is a technique where we precompute (to calculate values, or answers ahead of time before they are actually needed)
+the cumulative (increasing) sum of elements from the beginning of an array so that range sum queries can be answered quickly.
 
 Instead of calculating the same sums repeatedly, we store them once and reuse them.
 

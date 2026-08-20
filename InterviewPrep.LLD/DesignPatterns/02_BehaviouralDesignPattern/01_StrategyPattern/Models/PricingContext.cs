@@ -1,8 +1,4 @@
 ﻿
-using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Models;
-using InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Servces;
-using System.Diagnostics.Metrics;
-
 namespace InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._01_StrategyPattern.Models
 {
     public sealed class PricingContext

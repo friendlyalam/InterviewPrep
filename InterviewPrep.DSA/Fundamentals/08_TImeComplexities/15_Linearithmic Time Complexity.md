@@ -9,6 +9,8 @@ Total Work
 =
 
 n × log n
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 2. Simple Definition
 
 O(n log n) means:
@@ -19,6 +21,8 @@ At every division level, almost all elements are processed (n).
 Therefore,
 
 O(n log n)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 3. Why Do We Need O(n log n)?
 
 Suppose you have:
@@ -43,6 +47,8 @@ Processing all elements (n)
 Total:
 
 n × log n
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 4. Understanding with a Simple Example
 
 Suppose
@@ -132,6 +138,8 @@ Total work
 General formula
 
 n × log n
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 5. Visual Understanding
 
 Suppose
@@ -203,6 +211,8 @@ Total
 =
 
 64
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 6. Real-Life Example 1 – Organizing Books
 
 Imagine a librarian has
@@ -244,6 +254,8 @@ Process all books
 This resembles
 
 O(n log n)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 7. Real-Life Example 2 – Tournament
 
 Suppose
@@ -287,6 +299,8 @@ log₂(16)
 If organizing each round involves processing all participating teams,
 
 the total work follows the pattern of n log n.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Technical Understanding (Merge Sort Concept)
 
@@ -333,6 +347,8 @@ every element is processed once.
 Therefore
 
 O(n log n)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 9. Comparing O(n), O(n log n), and O(n²)
 
 Suppose
@@ -390,6 +406,8 @@ the work grows much more slowly.
 
 That is why efficient sorting algorithms aim for O(n log n).
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 11. Where Do We See O(n log n)?
 
 Common algorithms include:
@@ -403,6 +421,8 @@ Common algorithms include:
 ✓ Some Divide-and-Conquer algorithms
 
 We'll study each one later in the course.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 12. Interview Notes
 Question 1
@@ -430,6 +450,8 @@ Answer:
 Yes.
 
 For large inputs, O(n log n) performs dramatically fewer operations than O(n²).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Common Mistakes
 
@@ -464,6 +486,8 @@ The value depends on the input size.
 Correct:
 
 Some are O(n²), such as Bubble Sort and Selection Sort.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 14. Summary
 
@@ -502,3 +526,5 @@ n × log n
 ↓
 
 O(n log n)
+
+

@@ -4,6 +4,8 @@ Space Complexity is the amount of memory (RAM) an algorithm requires during its 
 
 It tells us how much extra memory an algorithm needs to solve a problem.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 2. Simple Definition
 
 Space Complexity answers one question:
@@ -13,6 +15,8 @@ Space Complexity answers one question:
 Just as Time Complexity measures execution time,
 
 Space Complexity measures memory usage.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why Do We Need Space Complexity?
 
@@ -37,6 +41,8 @@ because it uses much less memory.
 
 This is why memory is also important.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 4. Time Complexity vs Space Complexity
 
@@ -53,6 +59,8 @@ Notice:
 Both use Big O notation,
 
 but they measure different things.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 5. What Uses Memory?
@@ -74,7 +82,7 @@ Temporary Data
 
 We'll study each one.
 
----
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 6. Memory in a Simple Program
 int age = 35;
 
@@ -92,7 +100,7 @@ Space Complexity:
 
 O(1)
 
-----
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 7. Another Example
 int a = 10;
 int b = 20;
@@ -122,7 +130,7 @@ Therefore
 
 O(1)
 
---------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Real-Life Example 1 – School Bag
 
@@ -147,6 +155,8 @@ Memory is constant.
 
 O(1)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 9. Real-Life Example 2 – Water Bottle
 
 Suppose you always carry
@@ -168,6 +178,8 @@ one bottle.
 Memory doesn't grow.
 
 O(1)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 10. Technical Example – Sum of an Array
 int sum = 0;
@@ -204,6 +216,9 @@ Therefore,
 Extra Space:
 
 O(1)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 11. Important Concept – Input Memory vs Extra Memory
 
 This is one of the most confusing topics for beginners.
@@ -260,6 +275,8 @@ i
 Extra Space
 
 O(1)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 12. What is Auxiliary Space?
 Definition
 
@@ -270,6 +287,8 @@ Simple Definition
 Think of the input as something the user already gave you.
 
 We only count the new memory your algorithm creates.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 13. Visual Understanding
 
@@ -304,6 +323,8 @@ two variables.
 Extra Space
 
 O(1)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 14. Interview Notes
 Question 1
 
@@ -331,6 +352,8 @@ Usually, no.
 
 In interviews, unless specified otherwise, we analyze auxiliary space, not the memory occupied by the input.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 15. Common Mistakes
 
 ❌ Thinking Space Complexity means hard disk storage.
@@ -353,6 +376,8 @@ Loops increase Time Complexity because they repeat work.
 
 A loop by itself does not allocate more memory each iteration (unless you create new data structures inside it).
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 16. Summary
 
 Space Complexity:
@@ -366,6 +391,8 @@ Space Complexity:
 ✓ Variables often contribute O(1) space.
 
 ✓ Input memory is generally not counted.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 17. Revision Notes
 Space Complexity

@@ -16,7 +16,6 @@ using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._04_Mediator
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.DependencyInjection;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.Handlers;
 using InterviewPrep.LLD.DesignPatterns._02_BehaviouralDesignPattern._05_ChainOfResponsibility.Models;
-using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._01_DecoratorPattern.Decorators;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Adapter;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns._03_StructuralDesignPattern._02_AdapterPattern.Models;
@@ -35,6 +34,8 @@ using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPatt
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Enums;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Models;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._04_BuilderPattern.DependencyInjection;
+using InterviewPrep.LLD.DesignPatterns.CreationalPattern._04_BuilderPattern.Interfaces;
 using InterviewPrep.LLD.OOPS;
 using InterviewPrep.LLD.OOPS.Aggregation;
 using InterviewPrep.LLD.OOPS.Association;
@@ -752,6 +753,37 @@ InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Mo
 cloudPlatformService.Backup(
     CloudProvider.Azure,
     file);
+#endregion
+
+# region builder pattern demo
+ServiceCollection builderServices = new();
+
+builderServices.AddDeploymentServices();
+
+ServiceProvider builderServiceProvider =
+    builderServices.BuildServiceProvider();
+
+IKubernetesDeploymentBuilder builder =
+    builderServiceProvider.GetRequiredService<IKubernetesDeploymentBuilder>();
+
+IDeploymentService deploymentService =
+    builderServiceProvider.GetRequiredService<IDeploymentService>();
+
+var deployment = builder
+    .WithDeploymentName("payment-api")
+    .WithNamespace("production")
+    .WithDockerImage("payment-api:v3")
+    .WithReplicas(3)
+    .WithCpuLimit("500m")
+    .WithMemoryLimit("1Gi")
+    .EnableHealthCheck()
+    .AddEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Production")
+    .AddEnvironmentVariable("REDIS_HOST", "redis.company.com")
+    .AddLabel("Team", "Payments")
+    .AddLabel("Region", "India")
+    .Build();
+
+deploymentService.Deploy(deployment);
 #endregion
 #endregion
 

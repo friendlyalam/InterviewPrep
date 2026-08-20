@@ -11,6 +11,8 @@ O(n!) – Factorial Time
 
 These are among the slowest time complexities.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 2. Simple Definition
 O(2ⁿ)
 
@@ -21,6 +23,8 @@ O(n!)
 The algorithm tries every possible arrangement (permutation).
 
 The amount of work becomes enormous very quickly.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why Do We Need to Learn These?
 
@@ -33,6 +37,8 @@ Try every possible path.
 These often work for small inputs but fail for large ones.
 
 Understanding these complexities helps you know when a solution is not scalable.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Understanding O(2ⁿ)
 
@@ -95,6 +101,7 @@ n switches
 2ⁿ combinations
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 5. Visual Understanding of O(2ⁿ)
 
@@ -115,6 +122,8 @@ Notice what happens.
 Going from 20 to 30 inputs increases the work from about 1 million to over 1 billion.
 
 That is explosive growth.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Real-Life Example – Choosing Clothes
 
@@ -141,6 +150,8 @@ Total possible combinations:
 
 This resembles generating all subsets.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 7. Technical Example (Concept)
 
 Later we'll learn Recursion.
@@ -162,6 +173,8 @@ Every function call creates two more calls.
 The number of calls grows approximately like:
 
 2ⁿ
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 8. Where Do We See O(2ⁿ)?
 
 Common examples:
@@ -170,6 +183,8 @@ Generating all subsets
 Brute-force recursion
 Some Dynamic Programming problems before optimization
 Recursive Fibonacci (naive implementation)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 9. Understanding O(n!)
 
 Now let's learn something even slower.
@@ -238,6 +253,8 @@ Suppose:
 
 Already millions of possibilities.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 10. What is Factorial?
 
 Factorial means:
@@ -276,6 +293,7 @@ Examples:
 
 40320
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 11. Visual Understanding of O(n!)
 
@@ -294,6 +312,8 @@ Examples:
 
 
 The growth is even faster than O(2ⁿ).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 12. Real-Life Example – Seating Arrangement
 
@@ -315,6 +335,8 @@ More than 3.6 million arrangements.
 
 This is why brute-force permutation algorithms become impractical very quickly.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 13. Where Do We See O(n!)?
 
 Examples include:
@@ -323,6 +345,8 @@ Generating all permutations
 Traveling Salesman Problem (brute force)
 Some Backtracking problems
 Exhaustive search algorithms
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 14. Comparing All Time Complexities
 
 Suppose
@@ -347,6 +371,7 @@ Look at the last two rows.
 
 That is why interviewers expect you to improve brute-force solutions.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 5. Complete Ranking (Fastest to Slowest)
 O(1)
@@ -381,6 +406,8 @@ O(n!)
 
 This order is extremely important for interviews.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 16. Interview Notes
 Question 1
 
@@ -406,6 +433,8 @@ Answer:
 
 In algorithms that generate every possible permutation or arrangement.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 17. Common Mistakes
 
 ❌ Thinking O(2ⁿ) means 2 × n.
@@ -425,6 +454,8 @@ Factorial multiplies all positive integers from n down to 1.
 Correct:
 
 Brute-force is often useful as a starting point, but product companies usually expect you to optimize it.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 18. Summary
 O(2ⁿ)
@@ -481,3 +512,5 @@ O(n!)
 ↓
 
 Slowest
+
+

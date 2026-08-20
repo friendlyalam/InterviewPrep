@@ -5,7 +5,7 @@ namespace InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Model
     {
         public bool IsSuccess { get; set; }
 
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
 
         public StorageFile File { get; set; }
     }

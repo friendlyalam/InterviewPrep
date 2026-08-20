@@ -2,6 +2,8 @@
 
 Objects of a derived class should be able to replace objects of their base class without affecting the correctness of the program.
 
+objects of a superclass should be replaceable with objects of a subclass without breaking the application.
+
 This principle was introduced by Barbara Liskov.
 
 2. Simple Definition
@@ -214,3 +216,6 @@ A stronger interview answer is:
 LSP ensures that any implementation of an abstraction can replace another implementation without breaking business logic,
 changing expected behavior, or forcing consumers to add special-case checks. It validates whether an inheritance or interface 
 implementation truly represents the same contract.
+
+
+

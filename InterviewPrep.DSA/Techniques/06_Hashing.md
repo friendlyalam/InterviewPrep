@@ -1,6 +1,7 @@
 ﻿1. Definition
 
-Hashing is a technique that stores and retrieves data using a key so that searching, inserting, and deleting can usually be performed in O(1) average time.
+Hashing is a technique that stores and retrieves data using a key so that 
+searching, inserting, and deleting can usually be performed in O(1) average time.
 
 Instead of searching element by element, we directly access data using its key.
 

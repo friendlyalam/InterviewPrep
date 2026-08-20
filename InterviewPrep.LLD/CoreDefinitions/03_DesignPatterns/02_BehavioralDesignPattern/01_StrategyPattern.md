@@ -2,6 +2,9 @@
 
 Strategy Pattern defines a family of algorithms, encapsulates each one in a separate class, and makes them interchangeable at runtime.
 
+This allows an application to dynamically select or change an algorithm at runtime without altering the context class that uses it.
+It heavily promotes the Open/Closed Principle—allowing you to add new behaviors without modifying existing
+
 Simple Definition
 
 Instead of writing

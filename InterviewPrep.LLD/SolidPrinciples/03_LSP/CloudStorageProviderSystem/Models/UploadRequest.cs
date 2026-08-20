@@ -3,11 +3,11 @@ namespace InterviewPrep.LLD.SolidPrinciples.LSP.CloudStorageProviderSystem.Model
 {
     public class UploadRequest
     {
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
         public byte[] FileContent { get; set; }
 
-        public string ContentType { get; set; }
+        public string ContentType { get; set; } = string.Empty;
 
         public long FileSizeInBytes { get; set; }
     }

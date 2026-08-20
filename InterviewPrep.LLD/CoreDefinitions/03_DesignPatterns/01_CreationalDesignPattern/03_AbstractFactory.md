@@ -1,6 +1,7 @@
 ﻿1. Product Company Definition
 
-Abstract Factory is a Creational Design Pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+Abstract Factory is a Creational Design Pattern that provides an interface for creating 
+families of related or dependent objects without specifying their concrete classes.
 
 The important words are:
 
@@ -9,6 +10,8 @@ Family of related objects
 Factory Method creates one object.
 
 Abstract Factory creates multiple related objects.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Simple Definition
 
@@ -33,6 +36,8 @@ HP Mouse
 because those components are not intended to be used as a family.
 
 The entire kit comes from one factory.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Why was Abstract Factory Introduced?
 
@@ -60,6 +65,8 @@ Technically, the code compiles.
 Architecturally, it's wrong.
 
 The services are no longer a consistent family.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Problem Without Abstract Factory
 
@@ -109,6 +116,8 @@ Every service repeats the same provider-selection logic.
 
 This becomes difficult to maintain.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 5. Real-Life Example 1
 Furniture Showroom
 
@@ -133,6 +142,8 @@ Classic Table
 Classic Chair
 
 Each package is a family.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. Real-Life Example 2
 Car Interior Package
@@ -165,6 +176,8 @@ one selection
 
 multiple related products.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 7. Enterprise Example
 
 We'll build
@@ -190,6 +203,8 @@ everything should come from Azure.
 
 No accidental mixing.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 8. Characteristics
 Creates families of related objects.
 Hides concrete implementations.
@@ -197,6 +212,9 @@ Client depends on abstractions.
 Ensures compatible objects work together.
 Easy to switch entire implementations.
 Supports OCP and DIP.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 9. Advantages
 
 | Advantage               | Explanation                                             |
@@ -207,6 +225,8 @@ Supports OCP and DIP.
 | Better Maintainability  | Object creation is centralized.                         |
 | Scalable                | New families can be added easily.                       |
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 10. Disadvantages
 
@@ -225,6 +245,8 @@ Adding a new product type (for example, Cache Service) requires changes to all f
 
 Interviewers often ask this.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 11. When to Use
 
 Use Abstract Factory when
@@ -241,6 +263,8 @@ Database Providers
 UI Themes
 Operating Systems
 Payment SDK Suites
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 12. When NOT to Use
 
 Don't use it when
@@ -253,6 +277,8 @@ For a single payment processor,
 
 Factory Method is enough.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 13. Difference from Factory Method
 
 | Factory Method             | Abstract Factory                    |
@@ -261,6 +287,8 @@ Factory Method is enough.
 | One factory method         | Multiple factory methods            |
 | Simpler                    | More powerful                       |
 | Example: Payment Processor | Example: Entire Cloud Provider      |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 14. Difference from Builder
@@ -274,6 +302,10 @@ Many candidates confuse these.
 | Example: Building a House              | Example: Furniture Set           |
 
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 15. Difference from Singleton
 
 | Singleton           | Abstract Factory              |
@@ -282,6 +314,8 @@ Many candidates confuse these.
 | One shared instance | Multiple related instances    |
 | Solves object count | Solves object family creation |
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 16. Bad Design
 StorageService
@@ -306,6 +340,8 @@ Every service repeats provider selection.
 
 Hundreds of duplicated switch statements.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 17. Good Design
 Application
 
@@ -328,6 +364,8 @@ Azure Key Vault
 Switching to AWS means changing only the selected factory.
 
 Business services remain unchanged.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 18. Object Flow
 Program
@@ -354,6 +392,8 @@ CloudBackupService
 
 The business service never creates Azure or AWS classes directly.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 19. Real Product Company Examples
 Microsoft Azure
 
@@ -362,6 +402,8 @@ Choosing Azure means using related Azure services together:
 Azure Blob Storage
 Azure Queue Storage
 Azure Key Vault
+
+
 Amazon Web Services
 
 Choosing AWS means using:
@@ -369,6 +411,8 @@ Choosing AWS means using:
 Amazon S3
 Amazon SQS
 AWS Secrets Manager
+
+
 Google Cloud Platform
 
 Choosing Google Cloud means using:
@@ -378,6 +422,8 @@ Pub/Sub
 Secret Manager
 
 These are excellent examples of families of related services.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 20. Common Mistakes
 Mistake 1
@@ -409,6 +455,8 @@ Amazon SQS
 Google Secret Manager
 
 This defeats the purpose of Abstract Factory.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 21. Product Company Interview Questions
 Q1
@@ -449,9 +497,12 @@ Adding a new product type requires updating every concrete factory.
 
 22. Product Company Discussion
 
-This is one of the patterns you'll encounter in systems that support multiple providers, such as cloud platforms, payment SDK suites, messaging platforms, or UI frameworks.
+This is one of the patterns you'll encounter in systems that support multiple providers,
+such as cloud platforms, payment SDK suites, messaging platforms, or UI frameworks.
 
 One important clarification:
 
 Many enterprise applications today rely heavily on Dependency Injection. Because of that, you may not always see a class literally
+
+
 named AbstractFactory. The framework and DI container often provide similar behavior by assembling related services.

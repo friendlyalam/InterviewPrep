@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Arrays\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\InterviewPrep.DSA\InterviewPrep.DSA.csproj" />
   </ItemGroup>
 
