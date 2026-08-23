@@ -2,6 +2,11 @@
 
 Mediator Pattern defines a central object that encapsulates how multiple objects communicate with each other, reducing direct coupling between them.
 
+The Mediator design pattern is a behavioral pattern that reduces coupling between 
+components by forcing them to communicate indirectly through a central mediator object.
+Instead of classes talking to each other directly (creating complex dependencies),
+they send messages to the mediator, which routes them appropriately.
+
 The key idea is:
 
 Without Mediator
@@ -234,6 +239,7 @@ We have four important concepts.
 Represents what we want to do.
 
 LeaveRequest
+
 2. Handler
 
 Contains the logic to process the request.
@@ -433,6 +439,8 @@ Facade
 Subsystem A
 Subsystem B
 Subsystem C
+
+
 Mediator
 
 Coordinates communication between participants.
@@ -599,15 +607,3 @@ Program.cs
 
 STEP 6
 Run complete project
-
-        ↓
-
-STEP 7
-Interview section
-
-And, as you specifically requested earlier:
-
-I will keep all interview tips, interview questions, advantages/disadvantages recap, comparisons, 
-common mistakes, and senior-level discussion after the Program.cs implementation.
-
-So during the implementation steps, I won't interrupt the code with a large interview section.

@@ -651,19 +651,26 @@ Properties
 Count
 Keys
 Values
+
+
 Adding
+
 Add()
 TryAdd()
 [index] = value
+
 Searching
+
 ContainsKey()
 ContainsValue()
 TryGetValue()
 GetValueOrDefault()
+
 Removing
 Remove()
 Remove(key, out value)
 Clear()
+
 Capacity-related
 EnsureCapacity()
 TrimExcess()

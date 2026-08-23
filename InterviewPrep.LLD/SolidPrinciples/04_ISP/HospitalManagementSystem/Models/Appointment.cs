@@ -5,7 +5,7 @@ namespace InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Models
     {
         public int AppointmentId { get; set; }
 
-        public string DoctorName { get; set; }
+        public string DoctorName { get; set; } = string.Empty;
 
         public DateTime AppointmentDate { get; set; }
     }

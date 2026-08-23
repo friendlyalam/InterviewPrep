@@ -5,8 +5,8 @@ namespace InterviewPrep.LLD.SolidPrinciples.ISP.HospitalManagementSystem.Models
     {
         public int PrescriptionId { get; set; }
 
-        public string Diagnosis { get; set; }
+        public string Diagnosis { get; set; } = string.Empty;
 
-        public string Medicines { get; set; }
+        public string Medicines { get; set; }= string.Empty;
     }
 }

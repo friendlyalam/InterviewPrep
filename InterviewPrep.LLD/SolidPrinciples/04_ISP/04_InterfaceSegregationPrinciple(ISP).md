@@ -148,25 +148,22 @@ Business Scenario
 A warehouse has four types of users:
 
 Admin
-
 Responsibilities:
 
 Approve leave
 Assign tasks
+
+
 Picker
-
 Responsibilities:
-
 Pick products
+
 Packer
-
 Responsibilities:
-
 Pack products
+
 Delivery Partner
-
 Responsibilities:
-
 Deliver packages
 
 Notice:
@@ -232,26 +229,23 @@ Hospital Management System
 Suppose a hospital has four employees.
 
 Receptionist
-
-Responsibilities
-
+Responsibilities:
 Register Patient
 Schedule Appointment
+
+
 Doctor
-
-Responsibilities
-
+Responsibilities:
 Diagnose Patient
 Write Prescription
+
+
 Pharmacist
-
-Responsibilities
-
+Responsibilities:
 Dispense Medicine
+
 Cashier
-
-Responsibilities
-
+Responsibilities:
 Generate Bill
 
 Notice

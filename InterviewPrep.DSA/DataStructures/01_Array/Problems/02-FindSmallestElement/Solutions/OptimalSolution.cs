@@ -6,7 +6,7 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._02_FindSmallestEl
         public static int Find(int[] input)
         {
 
-            if (input == null)
+            if (input is null)
             {
                 throw new ArgumentNullException(nameof(input));
             }

@@ -1,6 +1,7 @@
 ﻿Product Company Definition
 
-Polymorphism is an OOP principle that allows a single interface, reference, or method call to represent multiple behaviours depending on the actual object being used.
+Polymorphism is an OOP principle that allows a single interface, 
+reference, or method call to represent multiple behaviours depending on the actual object being used.
 
 Another interview-ready definition:
 
