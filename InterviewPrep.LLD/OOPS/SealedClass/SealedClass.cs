@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterviewPrep.LLD.OOPS
+namespace InterviewPrep.LLD.OOPS.SealedClass
 {
     // Interface
     public interface IPrintable

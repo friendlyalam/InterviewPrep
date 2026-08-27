@@ -41,6 +41,8 @@ using InterviewPrep.LLD.OOPS.Association;
 using InterviewPrep.LLD.OOPS.Interfaces.DocumentExample;
 using InterviewPrep.LLD.OOPS.Interfaces.FlightBookingSystem;
 using InterviewPrep.LLD.OOPS.Polymorphism;
+using InterviewPrep.LLD.OOPS.SealedClass;
+using InterviewPrep.LLD.OOPS.StaticClass;
 using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Interfaces;
 using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Models;
 using InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Services;

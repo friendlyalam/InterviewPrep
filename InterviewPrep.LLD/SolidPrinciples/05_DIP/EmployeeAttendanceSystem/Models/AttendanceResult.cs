@@ -5,9 +5,9 @@ namespace InterviewPrep.LLD.SolidPrinciples.DIP.EmployeeAttendanceSystem.Models
     {
         public bool IsSuccess { get; set; }
 
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
 
-        public AttendanceRecord AttendanceRecord { get; set; }
+        public required AttendanceRecord AttendanceRecord { get; set; }
     }
 }
 

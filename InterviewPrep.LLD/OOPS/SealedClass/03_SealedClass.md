@@ -43,6 +43,7 @@ class Program
 Output
 
 Employee Class
+
 ===============================================================
 
 What Happens if We Inherit?
@@ -80,6 +81,7 @@ Employee
 Manager
 
 ❌ Not Allowed
+
 =========================================================================
 
 Why Do We Need a Sealed Class?
@@ -114,6 +116,7 @@ public sealed class PaymentGateway
 }
 
 No one can inherit and change the behavior.
+
 ========================================================================
 Real World Example
 
@@ -134,6 +137,7 @@ No.
 The manufacturer locks it.
 
 That is similar to a sealed class.
+
 ===================================================================================
 
 Example 2 – Bank
@@ -423,6 +427,7 @@ Interview Questions
 
 A class that cannot be inherited.
 
+
 2. Why do we use a sealed class?
 
 To prevent inheritance and protect the implementation from being changed through derived classes.
@@ -500,12 +505,14 @@ These two concepts contradict each other.
 No.
 
 Same reason.
+
 ===================================================================================================
 Best Practices
 Seal a class only when you intentionally want to prevent inheritance.
 Avoid sealing classes "just in case." Leave classes extensible unless there is a clear design reason.
 Consider sealing immutable classes or classes with security-sensitive logic.
 If you only want to stop overriding a specific method, use a sealed override instead of sealing the entire class.
+
 ==================================================================================================================
 Microsoft Interview Summary
 | Question                            | Answer                                         |
