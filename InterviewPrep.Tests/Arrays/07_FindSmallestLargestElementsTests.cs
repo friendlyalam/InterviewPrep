@@ -16,7 +16,7 @@ namespace InterviewPrep.Tests.Arrays
         public void Find_ShouldThrowArgumentException_WhenInputIsEmpty()
         {
             int[] input = Array.Empty<int>();
-            Assert.Throws<ArgumentNullException>(() => FindSmallestLargestElements.Find(input));
+            Assert.Throws<ArgumentException>(() => FindSmallestLargestElements.Find(input));
         }
 
         [Theory]
