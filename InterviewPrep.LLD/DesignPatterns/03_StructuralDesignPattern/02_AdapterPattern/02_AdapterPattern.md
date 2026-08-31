@@ -218,8 +218,9 @@ Third-party APIs differ.
 Legacy code must integrate with new systems.
 Multiple providers expose different interfaces.
 Vendor lock-in should be avoided.
-When NOT to Use
 
+
+When NOT to Use
 
 Don't use Adapter when:
 

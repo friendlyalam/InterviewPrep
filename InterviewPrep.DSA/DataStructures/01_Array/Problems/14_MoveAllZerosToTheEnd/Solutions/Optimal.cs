@@ -3,7 +3,7 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._14_MoveAllZerosTo
 {
     public class MoveAllZerosToTheEnd
     {
-        public static void MoveZeroes(int[] nums)
+        public static int[] MoveZeroes(int[] nums)
         {
             ArgumentNullException.ThrowIfNull(nums);
 
@@ -29,6 +29,7 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._14_MoveAllZerosTo
                     nonZeroIndex++;
                 }
             }
+            return nums;
         }
     }
 }

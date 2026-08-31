@@ -35,9 +35,12 @@ using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPatt
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._03_AbstractFactoryPattern.Interfaces;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._04_BuilderPattern.DependencyInjection;
 using InterviewPrep.LLD.DesignPatterns.CreationalPattern._04_BuilderPattern.Interfaces;
-using InterviewPrep.LLD.OOPS;
+using InterviewPrep.LLD.OOPS.Abstraction;
 using InterviewPrep.LLD.OOPS.Aggregation;
 using InterviewPrep.LLD.OOPS.Association;
+using InterviewPrep.LLD.OOPS.ClassObject;
+using InterviewPrep.LLD.OOPS.Encapsulation;
+using InterviewPrep.LLD.OOPS.Inheritence;
 using InterviewPrep.LLD.OOPS.Interfaces.DocumentExample;
 using InterviewPrep.LLD.OOPS.Interfaces.FlightBookingSystem;
 using InterviewPrep.LLD.OOPS.Polymorphism;

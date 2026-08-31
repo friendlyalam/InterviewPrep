@@ -1,5 +1,4 @@
-﻿
-namespace InterviewPrep.LLD.OOPS
+﻿namespace InterviewPrep.LLD.OOPS.Encapsulation
 {
     public class BankAccount
     {

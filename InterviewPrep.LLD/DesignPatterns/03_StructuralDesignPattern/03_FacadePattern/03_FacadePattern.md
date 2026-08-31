@@ -278,8 +278,8 @@ Use Facade when:
 Multiple services must be called together.
 Clients shouldn't know subsystem details.
 You want a clean API over a complex system.
-When NOT to Use
 
+When NOT to Use
 Don't use Facade when:
 
 There's only one service.

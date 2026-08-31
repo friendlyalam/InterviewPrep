@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="DesignPatterns\03_StructuralDesignPattern\01_DecoratorPattern\DependencyInjection\" />
-    <Folder Include="Designs\" />
   </ItemGroup>
 
   <ItemGroup>

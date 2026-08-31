@@ -1,4 +1,4 @@
-﻿namespace InterviewPrep.LLD.OOPS
+﻿namespace InterviewPrep.LLD.OOPS.Abstraction
 {
     //=========================================================
     // Interface
