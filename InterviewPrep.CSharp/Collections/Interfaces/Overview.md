@@ -17,6 +17,7 @@ Use when: You only need to read/iterate through a sequence.
 
 Don't use when: You need Add, Remove, or indexing.
 
+-------------------------------------------------------------------------------------------------------------------------
 2. ICollection<T>
 
 Definition: Represents a collection of elements with basic modification and counting operations.
@@ -34,6 +35,8 @@ CopyTo()
 IsReadOnly
 
 Use when: You need basic collection manipulation but don't care about indexing.
+
+-------------------------------------------------------------------------------------------------------------------------
 
 3. IList<T>
 
@@ -53,6 +56,8 @@ Count
 
 Use when: You need index-based access + modification.
 
+-------------------------------------------------------------------------------------------------------------------------
+
 4. IReadOnlyCollection<T>
 
 Definition: Represents a collection that can only be read and exposes its count.
@@ -66,6 +71,8 @@ Count
 foreach
 
 Use when: A method should expose a collection without allowing callers to modify it through the interface.
+
+-------------------------------------------------------------------------------------------------------------------------
 
 5. IReadOnlyList<T>
 
@@ -86,6 +93,8 @@ IndexOf()
 
 Use when: Caller needs read + index, but shouldn't modify the collection.
 
+-------------------------------------------------------------------------------------------------------------------------
+
 6. ISet<T>
 
 Definition: Represents a collection containing unique elements.
@@ -104,6 +113,8 @@ IsSubsetOf()
 IsSupersetOf()
 
 Use when: Uniqueness and set operations matter.
+
+-------------------------------------------------------------------------------------------------------------------------
 
 7. IDictionary<TKey,TValue>
 
@@ -125,6 +136,8 @@ TryGetValue()
 
 Use when: You need key → value lookup.
 
+-------------------------------------------------------------------------------------------------------------------------
+
 8. IReadOnlyDictionary<TKey,TValue>
 
 Definition: Read-only key-value collection.
@@ -142,6 +155,8 @@ ContainsKey()
 TryGetValue()
 
 Use when: Exposing dictionary data without allowing modification through the API.
+
+-------------------------------------------------------------------------------------------------------------------------
 
 9. IComparer<T>
 
@@ -177,6 +192,8 @@ Dictionary<TKey,TValue>
 
 Use when: You need custom equality or hashing behavior.
 
+-------------------------------------------------------------------------------------------------------------------------
+
 11. IReadOnlySet<T>
 
 Definition: Read-only representation of a set.
@@ -187,6 +204,8 @@ IReadOnlySet<int> numbers =
 Provides set-oriented queries without exposing modification operations.
 
 Use when: You want to expose unique values without allowing modification through the API.
+
+-------------------------------------------------------------------------------------------------------------------------
 
 12. IAsyncEnumerable<T>
 

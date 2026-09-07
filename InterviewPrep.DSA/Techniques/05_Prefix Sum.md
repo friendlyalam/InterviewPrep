@@ -195,6 +195,25 @@ for (int i = 1; i < array.Length; i++)
 {
     prefix[i] = prefix[i - 1] + array[i];
 }
+int[] nums = { 2, 4, 3, 5, 1 };
+
+int[] prefix = new int[nums.Length];
+
+prefix[0] = nums[0];
+
+for (int i = 1; i < nums.Length; i++)
+{
+    prefix[i] = prefix[i - 1] + nums[i];
+}
+
+Console.WriteLine(string.Join(", ", prefix));
+
+Output:
+
+2, 6, 9, 14, 15
+
+----------------------------------------------------------------
+
 Find Sum from L to R
 
 If
@@ -208,7 +227,42 @@ sum = prefix[R] - prefix[L - 1];
 
 This formula is one of the most important things to remember.
 
------------------------------------------------------------------------------
+Range Sum:
+
+Suppose we want:
+
+Sum from index 1 to 3
+
+Original array:
+
+[2, 4, 3, 5, 1]
+    ↑     ↑
+    1     3
+
+Expected:
+
+4 + 3 + 5 = 12
+
+Using prefix sum:
+
+prefix[3] - prefix[0]
+= 14 - 2
+= 12
+
+So:
+
+int left = 1;
+int right = 3;
+
+int sum = prefix[right] - prefix[left - 1];
+
+Console.WriteLine(sum);
+
+Output:
+
+12
+
+-------------------------------------------------------------------
 
 8. Formula (Most Important)
 
@@ -232,15 +286,7 @@ Sum(2,4)
 
 Formula
 
-Sum(L,R)
-
-=
-
-Prefix[R]
-
--
-
-Prefix[L-1]
+Sum(L,R) =Prefix[R]-Prefix[L-1]
 
 Example
 
@@ -467,15 +513,7 @@ O(1)
 
 Formula
 
-Sum(L,R)
-
-=
-
-Prefix[R]
-
--
-
-Prefix[L-1]
+Sum(L,R)=Prefix[R]-Prefix[L-1]
 
 -------------------------------------
 Technique Cheat Sheet (Updated)

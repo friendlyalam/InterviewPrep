@@ -453,6 +453,7 @@ AddFirst()
 AddLast()
 AddBefore()
 AddAfter()
+
 Searching
 Find()
 FindLast()
@@ -462,11 +463,14 @@ Remove()
 Remove(node)
 RemoveFirst()
 RemoveLast()
+
 Nodes
 First
 Last
+
 Information
 Count
+
 Management
 Clear()
 Copy
