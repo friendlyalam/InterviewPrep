@@ -1,6 +1,7 @@
 ﻿Product Company Definition
 
-Association is a relationship between two independent classes where one object can use or interact with another object to perform a business operation, while both objects have independent lifecycles.
+Association is a relationship between two independent classes where one object can
+use or interact with another object to perform a business operation, while both objects have independent lifecycles.
 
 Interview Definition
 
@@ -16,7 +17,7 @@ Example:
 
 Customer
 
-        books
+ books
 
 Flight
 
@@ -140,6 +141,8 @@ class Program
 Output
 
 Mohd Alam booked AI-202
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 6. Why Is This Association?
 
 Notice carefully.
@@ -327,6 +330,7 @@ uses
 
 Flight
 
+-----------------------
 Inheritance
 
 Vehicle
@@ -352,6 +356,8 @@ IAirline
 AirIndia
 
 Defines a capability.
+
+------------------------------------
 
 Association
 
@@ -408,6 +414,8 @@ Association is an object relationship in object-oriented design. At runtime, obj
 Use association when one object uses another but does not own it.
 Avoid forcing inheritance where there is no true "is-a" relationship.
 Keep associations focused on business interactions.
+
+
 16. Interview Summary
 Association
 

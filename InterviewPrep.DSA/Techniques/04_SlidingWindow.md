@@ -172,6 +172,7 @@ for (int right = 0; right < array.Length; right++)
         // Process current window
     }
 }
+
 Variable Size Window
 int left = 0;
 

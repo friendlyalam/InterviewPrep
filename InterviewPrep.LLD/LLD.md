@@ -407,3 +407,5 @@ Extensibility
      ↓
 Implementation
 
+
+Key flow: HLD → Components → Use Cases → Responsibilities → Classes/Interfaces → Relationships → SOLID → Patterns → DI → APIs/DB → Error Handling → Testability → Final LLD.

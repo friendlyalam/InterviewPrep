@@ -308,8 +308,6 @@ Because the consumer depends on a contract rather than a specific implementation
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Best Practices
-
 Best practices
 
 Depend on interfaces, not concrete classes.

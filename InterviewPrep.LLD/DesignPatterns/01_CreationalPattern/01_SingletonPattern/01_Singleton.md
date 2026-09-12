@@ -1,6 +1,7 @@
 ﻿1. Product Company Definition
 
-Singleton is a Creational Design Pattern that ensures only one instance of a class is created throughout the application's lifetime and 
+Singleton is a Creational Design Pattern that ensures only one instance of a class 
+is created throughout the application's lifetime and 
 provides a global point of access to that instance.
 
 Read the definition carefully.
@@ -510,5 +511,17 @@ using a private constructor and a static instance. AddSingleton() is an ASP.NET 
 the DI container ensures only one shared instance is created. Both provide a single shared object, 
 but the responsibility for creating and managing that object is different.
 
+
+If interviewer asks:
+
+“Have you used Singleton?”
+
+You can say:
+
+“I understand Singleton as a design pattern that ensures a single instance. 
+In ASP.NET Core, I generally don't implement the pattern manually. I use the built-in Dependency Injection container and register services 
+with AddSingleton(), AddScoped(), or AddTransient() depending on the required lifetime.”
+
+That's a very good practical .NET answer.
 
 

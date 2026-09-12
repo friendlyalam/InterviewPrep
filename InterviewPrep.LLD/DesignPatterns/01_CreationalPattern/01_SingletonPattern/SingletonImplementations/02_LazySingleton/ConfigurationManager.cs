@@ -1,5 +1,4 @@
 ﻿using InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.Models;
-using System.Numerics;
 
 namespace InterviewPrep.LLD.Design.CreationalPattern._01_SingletonPattern.SingletonImplementations._02_LazySingleton
 {

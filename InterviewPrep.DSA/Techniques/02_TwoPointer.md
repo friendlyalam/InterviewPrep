@@ -187,6 +187,8 @@ while (left < right)
     left++;
     right--;
 }
+
+
 Same Direction
 int slow = 0;
 
@@ -233,6 +235,7 @@ Opposite Direction Two Pointers
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 Same Direction
+
 Remove duplicates
 Move zeroes
 Remove element
