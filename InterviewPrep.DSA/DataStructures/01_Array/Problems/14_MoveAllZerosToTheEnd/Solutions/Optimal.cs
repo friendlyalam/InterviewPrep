@@ -20,12 +20,15 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._14_MoveAllZerosTo
             {
                 if (nums[i] != 0)
                 {
-                    // Put the current non-zero element
-                    // at the next available non-zero position.
-                    int temp = nums[nonZeroIndex];
-                    nums[nonZeroIndex] = nums[i];
-                    nums[i] = temp;
-
+                    // Only swap if pointers are at different positions
+                    if (i != nonZeroIndex)
+                    {
+                        // Put the current non-zero element
+                        // at the next available non-zero position.
+                        int temp = nums[nonZeroIndex];
+                        nums[nonZeroIndex] = nums[i];
+                        nums[i] = temp;
+                    }
                     nonZeroIndex++;
                 }
             }

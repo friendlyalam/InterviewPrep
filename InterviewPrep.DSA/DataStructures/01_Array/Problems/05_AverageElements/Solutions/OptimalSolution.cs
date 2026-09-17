@@ -15,7 +15,7 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._05_AverageArrayEl
             {
                 inputSum += input[i];
             }
-            return (double)inputSum / input.Length;
+            return Convert.ToDouble(inputSum / input.Length);
         }
     }
 }

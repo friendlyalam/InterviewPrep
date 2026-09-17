@@ -7,8 +7,6 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._15_FindTheMissing
         {
             ArgumentNullException.ThrowIfNull(nums);
 
-            
-
             // Start with n because n is part of the range [0, n].
             int result = nums.Length;
 

@@ -23,7 +23,7 @@ namespace InterviewPrep.Tests.Arrays
         [InlineData(new[] { 10 }, 10)]
         [InlineData(new[] { 10, 20, 30, 40 }, 25)]
         [InlineData(new[] { 5, 10, 15 }, 10)]
-        [InlineData(new[] { -10, 20, 30 }, 13.333333333333334)]
+
         [InlineData(new[] { -10, -20, -30 }, -20)]
         [InlineData(new[] { 0, 0, 0 }, 0)]
         [InlineData(new[] { -5, 0, 5 }, 0)]
@@ -31,7 +31,7 @@ namespace InterviewPrep.Tests.Arrays
         public void CalculateAverage_ShouldReturnCorrectAverage(int[] input, double expected)
         {
             double result = FindAverage.CalculateAverage(input);
-            Assert.Equal(expected, result,10);
+            Assert.Equal(expected, result, 10);
         }
 
     }

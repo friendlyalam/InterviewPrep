@@ -34,7 +34,6 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._20_ProductOfArray
             for (int i = nums.Length - 1; i >= 0; i--)
             {
                 productArray[i] *= suffix;
-
                 // Update suffix for the next index.
                 suffix *= nums[i];
             }

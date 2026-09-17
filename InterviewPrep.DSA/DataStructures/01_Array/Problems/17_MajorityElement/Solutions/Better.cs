@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._17_MajorityElement.Solutions
+﻿namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._17_MajorityElement.Solutions
 {
     public class MajorityElement
     {
@@ -31,8 +25,8 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._17_MajorityElemen
                 }
             }
 
-            int maxNumber = 0;
             int maxCount = 0;
+            int maxNumber = 0;
 
             // Find the number with the highest frequency.
             foreach (KeyValuePair<int, int> pair in mappings)
