@@ -287,17 +287,20 @@ Car Rental System
 Movie Ticket Booking
 Hotel Booking
 Restaurant Management
+Splitwise
+Notification System
+Meeting Room Scheduler
+
 
 Advanced:
-Splitwise
 Ride-Sharing
 Food Delivery
-Chess
-Notification System
 Payment System
 Logging Framework
-Cache
+in-memory Cache
 Rate Limiter
+File Storage
+Order Management
 Pub/Sub system
 
 Don't immediately start writing classes.
@@ -329,6 +332,74 @@ Follow this process:
 12. Discuss extensibility
        ↓
 13. Discuss concurrency if relevant
+
+
+ LLD learning approach
+
+For every problem, we’ll follow a consistent process:
+
+Understand the requirements
+Functional requirements
+Non-functional/design considerations
+Identify what is in scope and out of scope
+Identify the core objects
+Entities
+Services
+Interfaces
+Enums/value objects where appropriate
+Identify relationships
+Association
+Composition
+Aggregation
+Inheritance
+Dependency
+Apply OOP principles
+Encapsulation
+Abstraction
+Inheritance
+Polymorphism
+Apply SOLID
+Especially SRP, OCP, DIP
+We'll discuss why a principle is useful rather than blindly applying it.
+Identify suitable design patterns
+Strategy
+Factory / Abstract Factory
+Builder
+Observer
+Command
+State
+Decorator
+Adapter
+Facade
+Composite
+Mediator
+Singleton, where genuinely justified
+And other patterns when needed
+Design the class/interface structure
+We'll first design it conceptually.
+Then convert it into clean C#.
+Write production-style C#
+Interfaces + DI
+Constructor injection for business dependencies
+Avoid unnecessary new inside business logic
+Clean naming
+Appropriate access modifiers
+Extensibility without over-engineering
+Walk through the design
+Request → service → domain objects → dependencies
+Explain runtime behavior.
+Review and improve
+What is good?
+What violates SOLID?
+Where is coupling?
+What happens when a new requirement arrives?
+What would we change in an interview?
+Interview discussion
+Follow-up requirements
+Edge cases
+Scaling the object model
+Concurrency/thread-safety where relevant
+Persistence/API boundaries where relevant
 
 
  What "Proficient in LLD" Actually Means

@@ -25,9 +25,7 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._22_FindAllDisappe
                     nums[index] = -nums[index];
                 }
             }
-
             IList<int> result = new List<int>();
-
             // Step 2:
             // If a position is still positive,
             // that number never appeared.

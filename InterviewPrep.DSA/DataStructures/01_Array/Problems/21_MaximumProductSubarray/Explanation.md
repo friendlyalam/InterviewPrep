@@ -465,3 +465,68 @@ minimum negative × negative
 ```
 
 This is the key idea behind the optimal solution.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+Example
+
+Array:
+
+nums = [2, 3, -2, 4]
+
+Indexes:
+
+         0   1   2   3
+nums =  [2,  3, -2,  4]
+
+nums.Length is 4.
+
+So:
+
+nums.Length - 1 = 3
+
+That's the last index.
+
+Now see what happens as i changes:
+
+|  i | Calculation | Index | Value |
+| -: | ----------: | ----: | ----: |
+|  0 | `4 - 1 - 0` |     3 |     4 |
+|  1 | `4 - 1 - 1` |     2 |    -2 |
+|  2 | `4 - 1 - 2` |     1 |     3 |
+|  3 | `4 - 1 - 3` |     0 |     2 |
+
+
+So it accesses:
+
+4 → -2 → 3 → 2
+
+That's simply right to left.
+
+Even simpler way to remember
+nums[i]
+
+means:
+
+LEFT → RIGHT
+
+2 → 3 → -2 → 4
+
+While:
+
+nums[nums.Length - 1 - i]
+
+means:
+
+RIGHT → LEFT
+
+4 → -2 → 3 → 2
+
+So:
+
+suffixProduct *= nums[nums.Length - 1 - i];
+
+is basically:
+
+suffixProduct = suffixProduct × current element from the RIGHT
