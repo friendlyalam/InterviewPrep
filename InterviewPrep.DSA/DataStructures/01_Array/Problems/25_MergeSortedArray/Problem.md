@@ -46,6 +46,7 @@ n = 1
 
 Output:
 [1]
+
 Constraints
 nums1 is sorted in non-decreasing order.
 nums2 is sorted in non-decreasing order.

@@ -1,6 +1,7 @@
 ﻿
 namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._25_MergeSortedArray.Solutions
 {
+    //Optimal Approach: Three-Pointer Strategy (From Right to Left)
     public static class MergeSortedArrayOptimal
     {
         public static int[] Merge(int[] nums1, int m, int[] nums2, int n)
@@ -24,12 +25,13 @@ namespace InterviewPrep.DSA.DataStructures._01_Array.Problems._25_MergeSortedArr
                     "nums2 length must be equal to n.",
                     nameof(nums2));
 
-            int first = m - 1;
-            int second = n - 1;
-            int position = m + n - 1;
+            int first = m - 1;//Pointer for nums1 valid elements
+            int second = n - 1;//Pointer for nums2 elements
+            int position = m + n - 1;//// Pointer for insertion at the end of nums1
 
             // Merge from the end so that valid nums1 elements
             // are not overwritten.
+            //// Compare elements from the back and place the larger one at index position.
             while (first >= 0 && second >= 0)
             {
                 if (nums1[first] > nums2[second])

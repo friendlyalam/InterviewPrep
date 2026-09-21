@@ -225,8 +225,6 @@ Given requirements, design classes/interfaces and explain your decisions.
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 Phase 5 — HLD ⭐⭐⭐⭐⭐
 
-Now start the actual System Design journey.
-
 Learn in this order:
 
 Step 1 — Client & Server
@@ -473,23 +471,38 @@ After learning the building blocks, start designing complete systems.
 
 Start relatively simple:
 
+Beginner:
+
 URL Shortener
+Pastebin
+File Upload System
 Rate Limiter
 Notification System
-File Storage
-Chat System
 
-Then move to:
-
-Food Delivery
-Ride Sharing
+Intermediate:
+WhatsApp / Chat System
+YouTube / Video Streaming
+Dropbox / Google Drive
+Twitter / X Feed
+Instagram
+Uber / Ride Booking
+Food Delivery System
+E-commerce System
 Payment System
-Video Streaming
-Social Media Feed
-E-commerce
-Distributed Logging System
-Ride/Delivery tracking
-Large-scale search
+Search Autocomplete
+
+Advanced:
+
+Netflix
+Amazon
+Google Search
+Distributed Job Scheduler
+Distributed Notification Platform
+Real-Time Analytics System
+Global Payment System
+Multi-Region E-commerce
+Large-Scale Messaging System
+Enterprise SaaS Platform
 
 For every problem, follow:
 

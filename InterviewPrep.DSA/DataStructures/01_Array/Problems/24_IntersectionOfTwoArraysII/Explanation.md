@@ -274,7 +274,8 @@ O(n log n + m log m)
 
 # Space Complexity
 
-If `Array.Sort()` is used and we consider the sorting algorithm's auxiliary stack/internal requirements, the exact implementation-dependent memory is not strictly O(1).
+If `Array.Sort()` is used and we consider the sorting algorithm's auxiliary stack/internal requirements,
+the exact implementation-dependent memory is not strictly O(1).
 
 For interview-level auxiliary-space analysis, the two-pointer technique itself requires:
 

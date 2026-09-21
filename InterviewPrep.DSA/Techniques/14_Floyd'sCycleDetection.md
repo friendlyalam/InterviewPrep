@@ -70,6 +70,9 @@ They meet.
 Therefore:
 
 Cycle exists
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 3. Process / Steps
 Step 1 — Create two pointers
 ListNode slow = head;
@@ -93,6 +96,8 @@ while (fast != null && fast.Next != null)
 If this condition eventually becomes false:
 
 No cycle
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 4. C# Example
 public class ListNode
 {
@@ -133,6 +138,9 @@ fast → null
 Therefore:
 
 return false;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 6. Example With Cycle
 1 → 2 → 3 → 4
         ↑     ↓
@@ -145,6 +153,9 @@ slow == fast
 Therefore:
 
 return true;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 7. Why Does It Work?
 
 Think about a circular running track.
@@ -169,12 +180,16 @@ Fast → 2 steps
        ↑
        │
 They eventually meet
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 8. Complexity
 Complexity	Value	Why
 Time	O(n)	Pointers traverse the list
 Space	O(1)	Only two pointers are used
 
 This is the major advantage of Floyd's algorithm.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Advantages
 1. Constant extra space
@@ -187,6 +202,7 @@ fast
 are required.
 
 Space = O(1)
+
 2. No HashSet required
 
 Another solution is:
@@ -207,10 +223,16 @@ For a linked-list cycle detection problem, Floyd's technique gives:
 
 Time  → O(n)
 Space → O(1)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 10. Disadvantages
 Mainly useful when you have a next-pointer/sequence structure.
 The basic version only tells you whether a cycle exists.
 To find the starting node of the cycle, you need an additional phase.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 11. Finding the Start of the Cycle
 
 Floyd's algorithm can do more than simply detect a cycle.
@@ -247,6 +269,8 @@ slow == fast
 
 that node is the cycle starting node.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 12. Finding Cycle Start — C#
 public static ListNode? DetectCycle(ListNode? head)
 {
@@ -278,6 +302,9 @@ public static ListNode? DetectCycle(ListNode? head)
 
     return slow;
 }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 13. Important DSA Pattern
 
 Remember Floyd's technique like this:
