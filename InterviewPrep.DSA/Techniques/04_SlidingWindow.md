@@ -125,6 +125,39 @@ A [B C D] E F
 A B [C D E] F
 
 
+currentSum = currentSum - nums[i - k] + nums[i];
+
+This formula is used when a fixed-size sliding window moves one position to the right.
+
+currentSum → previous window's sum
+nums[i - k] → element that is leaving the window
+nums[i] → new element that is entering the window
+
+So:
+
+New Sum = Old Sum − Leaving Element + New Element
+
+Example:
+
+Window size k = 3
+
+Previous window:
+[2, 4, 6] → sum = 12
+
+Move right:
+[4, 6, 8]
+
+At i = 3:
+
+currentSum = 12 - nums[3 - 3] + nums[3]
+           = 12 - nums[0] + nums[3]
+           = 12 - 2 + 8
+           = 18
+
+That's why we use i - k: it points to the element that is exactly k positions behind the new element, i.e. the one leaving the window.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 Type 2 – Variable Size Window
 
 Window grows and shrinks based on a condition.
@@ -173,7 +206,8 @@ for (int right = 0; right < array.Length; right++)
     }
 }
 
-Variable Size Window
+Variable Size Window:
+
 int left = 0;
 
 for (int right = 0; right < array.Length; right++)
@@ -259,29 +293,15 @@ Pick any 3 elements.
 
 The problem asks for frequency over the entire dataset.
 
-Use:
-
-HashMap
+Use:HashMap
 
 The problem involves trees or graphs.
 
-Use:
-
-DFS
-
-or
-
-BFS
+Use:DFS or BFS
 
 The problem requires random intervals repeatedly.
 
-Use:
-
-Prefix Sum
-
-or
-
-Segment Tree
+Use:Prefix Sum or Segment Tree
 
 -----------------------------------------------
 
