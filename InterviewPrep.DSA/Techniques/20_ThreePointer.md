@@ -1,6 +1,7 @@
 ﻿Three-Pointer Technique — Complete DSA Guide
 
-The Three-Pointer Technique is not one specific algorithm. It is a problem-solving pattern where we maintain three indexes/pointers and move them according to the problem's rules.
+The Three-Pointer Technique is not one specific algorithm. It is a problem-solving pattern where we
+maintain three indexes/pointers and move them according to the problem's rules.
 
 It is especially useful when a problem involves three regions, three sequences, partitioning, or a fixed pointer + two moving pointers.
 

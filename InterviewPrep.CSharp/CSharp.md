@@ -1,7 +1,8 @@
 ﻿What is C#?
 
 C# (C-Sharp) is a modern, strongly typed, object-oriented programming language developed by Microsoft. 
-It runs primarily on the .NET platform and is widely used for building web APIs, enterprise applications, cloud services, desktop applications, games, and other software.
+It runs primarily on the .NET platform and is widely used for building web APIs, enterprise applications, 
+cloud services, desktop applications, games, and other software.
 
 For your goal, don't learn C# as just a programming language syntax.
 
@@ -28,8 +29,9 @@ Comments
 Input/output
 String interpolation
 Nullable types
-Remember
 
+
+Remember:
 var is compile-time type inference; it does not mean the variable can change its type.
 
 2. Value Types vs Reference Types ⭐⭐⭐⭐⭐
@@ -76,8 +78,9 @@ params
 Method overloading
 Expression-bodied methods
 Local functions
-Remember
 
+
+Remember:
 Method overloading is compile-time polymorphism.
 
 4. Classes and Objects ⭐⭐⭐⭐⭐
@@ -118,8 +121,8 @@ Sealed method
 Composition
 Association
 Aggregation
-Remember
 
+Remember:
 Composition over inheritance is an important design principle, but it doesn't mean inheritance should never be used.
 
 🟢 Level 2 — Core C# Intermediate
@@ -137,10 +140,12 @@ Static constructor
 Primary constructor
 Constructor execution order
 Object initialization
-Remember
+
+Remember:
 this() → same class
 base() → parent class
 static constructor → once per type
+
 7. Exception Handling ⭐⭐⭐⭐⭐
 
 Learn:
@@ -157,8 +162,8 @@ Global exception handling
 Async exceptions
 Logging
 ProblemDetails in ASP.NET Core
-Remember
 
+Remember:
 Don't catch an exception unless you can handle it, add meaningful context, or translate it appropriately.
 
 8. Generics ⭐⭐⭐⭐⭐
@@ -182,7 +187,8 @@ Example:
 public class Repository<T>
 {
 }
-Remember
+
+Remember:
 
 Generics provide type safety + code reuse while preserving the actual type.
 
@@ -199,7 +205,9 @@ Stack<T>
 Queue<T>
 LinkedList<T>
 PriorityQueue<TElement,TPriority>
-Interfaces
+
+Interfaces:
+
 IEnumerable<T>
 ICollection<T>
 IList<T>
@@ -216,8 +224,8 @@ Internal behavior
 When to use
 When not to use
 Memory implications
-Remember
 
+Remember
 Don't memorize only methods.
 
 Know why Dictionary is generally O(1) average lookup, why List provides fast indexing, and when HashSet is better than List.
@@ -242,6 +250,8 @@ Method
 Delegate
   ↓
 Method can be passed around
+
+
 11. Lambda Expressions ⭐⭐⭐⭐⭐
 
 Learn:
@@ -258,6 +268,7 @@ Captured variables
 Remember
 
 A lambda is an expression that can represent executable behavior and can be converted to a compatible delegate or expression tree.
+
 
 12. Events ⭐⭐⭐⭐
 
@@ -278,6 +289,8 @@ Publisher
  Event
     ↓
 Subscribers
+
+
 13. LINQ ⭐⭐⭐⭐⭐
 
 This is extremely important for .NET interviews.
@@ -325,6 +338,7 @@ Remember
 IEnumerable<T> generally represents in-memory iteration; IQueryable<T> can represent a query that a provider translates, such as an EF Core database query.
 
 🟡 Level 3 — Advanced C# / .NET
+
 14. Memory Management ⭐⭐⭐⭐⭐
 
 This deserves a separate deep study.
@@ -375,8 +389,8 @@ CancellationToken
 Task.WhenAll
 Task.WhenAny
 Async streams
-Remember
 
+Remember:
 async/await is primarily about asynchronous operations, not automatically creating a new thread.
 
 16. Multithreading & Concurrency ⭐⭐⭐⭐⭐
@@ -422,7 +436,6 @@ This becomes important for senior-level LLD and HLD.
 18. Immutability ⭐⭐⭐⭐
 
 Learn:
-
 readonly
 init
 private set
@@ -499,6 +512,8 @@ Lazy iteration
 Deferred execution
 State machine concept
 IEnumerable<T>
+
+
 23. Span<T> and Memory<T> ⭐⭐⭐⭐
 
 Important for advanced .NET performance knowledge.
@@ -534,6 +549,7 @@ ArrayPool<T>
 Struct vs class trade-offs
 GC pressure
 Allocation profiling
+
 25. C# + Design Principles ⭐⭐⭐⭐⭐
 
 Connect language features to:
@@ -577,6 +593,7 @@ Assembly
 Metadata
 Runtime
 GC
+
 27. Dependency Injection ⭐⭐⭐⭐⭐
 
 Learn:
@@ -591,7 +608,8 @@ Transient
 Service registration
 Dependency graph
 Circular dependencies
-Remember
+
+Remember:
 
 Dependency Injection is a technique; Dependency Inversion is a design principle.
 
@@ -615,6 +633,8 @@ Exception Handling
 Caching
 Health Checks
 Background Services
+
+
 29. Entity Framework Core ⭐⭐⭐⭐⭐
 
 Learn:
@@ -632,8 +652,9 @@ Loading strategies
 N+1 problem
 Query optimization
 Concurrency
-30. Web/API Fundamentals ⭐⭐⭐⭐⭐
 
+
+30. Web/API Fundamentals ⭐⭐⭐⭐⭐
 Learn:
 
 HTTP
@@ -651,6 +672,8 @@ Idempotency
 Pagination
 API Versioning
 Rate Limiting
+
+
 31. Microservices ⭐⭐⭐⭐⭐
 
 Learn:
@@ -670,8 +693,9 @@ Circuit breaker
 Timeout
 Distributed tracing
 Correlation ID
-32. Cloud / Azure ⭐⭐⭐⭐⭐
 
+
+32. Cloud / Azure ⭐⭐⭐⭐⭐
 For your .NET path, learn Azure from an architecture perspective:
 
 Compute
