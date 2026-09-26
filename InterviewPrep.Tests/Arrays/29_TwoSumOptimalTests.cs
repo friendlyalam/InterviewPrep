@@ -34,12 +34,12 @@ namespace InterviewPrep.Tests.Arrays
         [InlineData(
             new[] { 1, 5, 3, 7 },
             10,
-            new[] { 1, 3 })]
+            new[] { 2, 3 })]
 
         [InlineData(
             new[] { 4, 6, 10, 2 },
             12,
-            new[] { 1, 3 })]
+            new[] { 2, 3 })]
 
         public void TwoSum_ShouldReturnExpectedIndices(
             int[] nums,

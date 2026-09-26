@@ -1,6 +1,6 @@
 ﻿namespace InterviewPrep.Tests.Arrays
 {
-using InterviewPrep.DSA.DataStructures._01_Array.Problems._30_LongestSubarrayWithSumK.Solutions;
+    using InterviewPrep.DSA.DataStructures._01_Array.Problems._30_LongestSubarrayWithSumK.Solutions;
     using Xunit;
 
     public class LongestSubArrayWithSumKOptimalTests
@@ -53,7 +53,7 @@ using InterviewPrep.DSA.DataStructures._01_Array.Problems._30_LongestSubarrayWit
         [InlineData(
             new[] { 1, 2, -1, 2, 3, -2, 1 },
             5,
-            5)]
+            6)]
         public void Find_ShouldReturnLongestSubArrayLength(
             int[] nums,
             int k,

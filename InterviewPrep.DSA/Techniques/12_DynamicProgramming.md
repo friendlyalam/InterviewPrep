@@ -206,7 +206,7 @@ Uses:
 Recursion
 Cache (Memory)
 
-Flow
+Flow:
 
 Problem
 
@@ -221,6 +221,7 @@ Store Answer
 ↓
 
 Reuse Answer
+
 Generic C# Template
 Dictionary<int, int> memo = new();
 
@@ -237,6 +238,7 @@ int Solve(int n)
 
     return answer;
 }
+
 B. Tabulation (Bottom-Up)
 
 No recursion.
@@ -264,6 +266,7 @@ Next
 ↓
 
 Final Answer
+
 Generic C# Template
 dp[0] = ...;
 
@@ -481,12 +484,14 @@ Answer:
 
 Overlapping Subproblems
 Optimal Substructure
+
 Q3. What are the two DP approaches?
 
 Answer:
 
 Memoization (Top-Down)
 Tabulation (Bottom-Up)
+
 Q4. Why is DP faster than Recursion?
 
 Answer:
