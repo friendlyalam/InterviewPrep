@@ -18,6 +18,7 @@ A complex design pattern is being used without need.
 Business logic is unnecessarily difficult to understand.
 Architecture has components that provide no real value.
 A simple built-in .NET feature can replace custom code.
+
 3. Key Features
 Simple design
 Easy to understand
@@ -294,8 +295,13 @@ Examples or Case Studies
 Here are a few examples and case studies that demonstrate the application of the KISS principle across various domains:
 
 Google Search Engine
-Google's search engine interface exemplifies simplicity. The homepage consists of a single search bar and minimal text, making it easy for users to understand and use.
-Despite the underlying complexity of the search algorithms, Google's focus on simplicity has made it the most widely used search engine globally.
+Google's search engine interface exemplifies simplicity.
+The homepage consists of a single search bar and minimal text, making it easy for users to understand and use.
+Despite the underlying complexity of the search algorithms, 
+Google's focus on simplicity has made it the most widely used search engine globally.
+
 Apple iPhone
-Apple's iPhone is known for its intuitive and user-friendly design, adhering to the KISS principle. The interface features straightforward navigation, minimalistic icons, and intuitive gestures.
-Apple prioritizes simplicity in its hardware and software design, resulting in a seamless and enjoyable user experience for millions of users worldwide.
+Apple's iPhone is known for its intuitive and user-friendly design, adhering to the KISS principle.
+The interface features straightforward navigation, minimalistic icons, and intuitive gestures.
+Apple prioritizes simplicity in its hardware and software design, 
+resulting in a seamless and enjoyable user experience for millions of users worldwide.

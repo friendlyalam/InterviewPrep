@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include=".NET_and_CLR\01_DotNet_Overview.md" />
+    <None Include=".NET_and_CLR\02_CLR.md" />
+    <None Include=".NET_and_CLR\04_Assembly_and_Metadata.md" />
+    <None Include=".NET_and_CLR\03_Compilation_and_IL.md" />
+    <None Include=".NET_and_CLR\05_JIT.md" />
+    <None Include=".NET_and_CLR\06_Memory_and_Garbage_Collection.md" />
+    <None Include=".NET_and_CLR\07_CLR_Runtime_Services.md" />
+    <None Include=".NET_and_CLR\08_DotNet_CLR_Interview_Questions.md" />
+    <None Include=".NET_and_CLR\09_Quick_Revision.md" />
+    <None Include=".NET_and_CLR\10_Common Type System.md" />
+    <None Include=".NET_and_CLR\11_Common Language Specification.md" />
+    <None Include=".NET_and_CLR\12_Assembly.md" />
     <None Include="Collections\NonGenerics\03_SortedList\NonGenericSortedListExample.cs" />
   </ItemGroup>
 

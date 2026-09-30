@@ -18,6 +18,7 @@ You are creating abstractions for future possibilities without a real requiremen
 You are adding configuration that isn't currently needed.
 You are designing for hypothetical use cases.
 You are implementing features that nobody has requested.
+
 3. Key Features
 Focuses on current requirements
 Avoids speculative development

@@ -155,7 +155,8 @@ That answer is incomplete.
 
 A stronger answer is:
 
-Composition is a strong HAS-A relationship where the parent owns the child object, creates it, manages its lifecycle, and the child is considered part of the parent's object graph.
+Composition is a strong HAS-A relationship where the parent owns the child object, creates it, 
+manages its lifecycle, and the child is considered part of the parent's object graph.
 
 That explanation shows you understand ownership, lifecycle, and object design, which are the key ideas interviewers look for.
 
@@ -168,3 +169,4 @@ You'll often hear:
 "Destroy the parent, and the child is destroyed."
 
 This is a design concept, not an immediate CLR behaviour.
+

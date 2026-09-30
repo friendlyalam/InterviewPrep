@@ -281,6 +281,7 @@ OrderService
 PaymentService
 UserService
 InvoiceService
+
 4. Flexibility
 
 Tomorrow,
@@ -292,6 +293,7 @@ No inheritance changes required.
 5. Better Maintainability
 
 Each class has one responsibility.
+
 -----------------------------------------------------
 Disadvantages
 More classes
@@ -364,6 +366,7 @@ Better maintainability
 Higher flexibility
 Easier testing
 Better code reuse
+
 Q2. Does this mean inheritance is bad?
 
 No.
@@ -475,3 +478,4 @@ public class OrderService
 }
 
 This still follows Composition over Inheritance, while also applying Dependency Injection and the Dependency Inversion Principle.
+
